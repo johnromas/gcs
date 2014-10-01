@@ -1,4 +1,4 @@
-<%= form_for(@doctor) do |f| %>
+<%= bootstrap_form_for(@doctor) do |f| %>
   <% if @doctor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
@@ -12,39 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state_id %><br>
-    <%= f.text_field :state_id %>
+    <%= f.collection_select(:state_id, State.all, :id, :name, {prompt: 'Select State'}) %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :mobile %><br>
     <%= f.text_field :mobile %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </div>
   <div class="actions">

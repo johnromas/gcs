@@ -15,19 +15,16 @@
     <%= f.text_field :number %>
   </div>
   <div class="field">
-    <%= f.text_field :claimant_id %>
+    <%= f.collection_select(:claimant_id, Claimant.all, :id, :full_name, {prompt: 'Select Claimant'}) %>
   </div>
   <div class="field">
-    <%= f.text_field :insurance_company_id %>
+    <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company'}) %>
   </div>
   <div class="field">
-    <%= f.text_field :adjustor_id %>
+    <%= f.collection_select(:adjustor_id, Adjustor.all, :id, :full_name, {prompt: 'Select Adjustor'}) %>
   </div>
   <div class="field">
-    <%= f.text_field :attorney_id %>
-  </div>
-  <div class="field">
-    <%= f.text_field :appointment_id %>
+    <%= f.collection_select(:appointment_id, Appointment.all, :id, :date, {prompt: 'Select Appointment'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

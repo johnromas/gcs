@@ -1,7 +1,7 @@
 <h1 class="page-header">Claims</h1>
 
 <% @claims.each do |claim| %>
-  <%= claim.number %>
+  <p><strong>Claim #</strong><%= claim.number %></p>
   <%= link_to 'Show', claim %>
   <%= link_to 'Edit', edit_claim_path(claim) %>
   <%= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' } %>
