@@ -31,6 +31,8 @@ end
 
 gem 'bootstrap-sass', '~> 3.2.0'
 
+gem 'bh', '~> 1.1'
+
 gem 'bootstrap_form'
 
 group :production do
