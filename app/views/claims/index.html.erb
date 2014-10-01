@@ -1,36 +1,11 @@
-<h1>Listing claims</h1>
+<h1 class="page-header">Claims</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Claimant</th>
-      <th>Insurance company</th>
-      <th>Adjustor</th>
-      <th>Attorney</th>
-      <th>Appointment</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @claims.each do |claim| %>
-      <tr>
-        <td><%= claim.number %></td>
-        <td><%= claim.claimant.full_name %></td>
-        <td><%= claim.insurance_company.name %></td>
-        <td><%= claim.adjustor.first_name %></td>
-        <td><%= claim.attorney %></td>
-        <td><%= claim.appointment.date %></td>
-        <td><%= link_to 'Show', claim %></td>
-        <td><%= link_to 'Edit', edit_claim_path(claim) %></td>
-        <td><%= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @claims.each do |claim| %>
+  <%= claim.number %>
+  <%= link_to 'Show', claim %>
+  <%= link_to 'Edit', edit_claim_path(claim) %>
+  <%= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <br>
 

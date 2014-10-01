@@ -7,22 +7,22 @@
 
 <p>
   <strong>Claimant:</strong>
-  <%= @claim.claimant %>
+  <%= @claim.claimant.full_name %>
 </p>
 
 <p>
   <strong>Insurance company:</strong>
-  <%= @claim.insurance_company %>
+  <%= @claim.insurance_company.name %>
 </p>
 
 <p>
   <strong>Adjustor:</strong>
-  <%= @claim.adjustor %>
+  <%= @claim.adjustor.full_name %>
 </p>
 
 <p>
   <strong>Doctor:</strong>
-  <%= @claim.doctor %>
+  <%= @claim.appointment.doctor.full_name %>
 </p>
 
 <p>
@@ -32,7 +32,8 @@
 
 <p>
   <strong>Appointment:</strong>
-  <%= @claim.appointment %>
+  <%= @claim.appointment.date %><br>
+  <%= @claim.appointment.time %>
 </p>
 
 <%= link_to 'Edit', edit_claim_path(@claim) %> |
