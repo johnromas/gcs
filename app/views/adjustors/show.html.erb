@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Insurance company:</strong>
+  <%= @adjustor.insurance_company %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @adjustor.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @adjustor.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @adjustor.phone %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @adjustor.mobile %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @adjustor.notes %>
+</p>
+
+<%= link_to 'Edit', edit_adjustor_path(@adjustor) %> |
+<%= link_to 'Back', adjustors_path %>

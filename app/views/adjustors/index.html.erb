@@ -1,0 +1,37 @@
+<h1>Listing adjustors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Insurance company</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone</th>
+      <th>Mobile</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adjustors.each do |adjustor| %>
+      <tr>
+        <td><%= adjustor.insurance_company %></td>
+        <td><%= adjustor.first_name %></td>
+        <td><%= adjustor.last_name %></td>
+        <td><%= adjustor.phone %></td>
+        <td><%= adjustor.mobile %></td>
+        <td><%= adjustor.notes %></td>
+        <td><%= link_to 'Show', adjustor %></td>
+        <td><%= link_to 'Edit', edit_adjustor_path(adjustor) %></td>
+        <td><%= link_to 'Destroy', adjustor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adjustor', new_adjustor_path %>

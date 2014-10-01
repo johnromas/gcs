@@ -1,4 +1,16 @@
 Gcs::Application.routes.draw do
+  resources :appointments
+
+  resources :claims
+
+  resources :adjustors
+
+  resources :insurance_companies
+
+  resources :claimants
+
+  resources :doctors
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

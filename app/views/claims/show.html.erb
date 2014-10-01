@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @claim.number %>
+</p>
+
+<p>
+  <strong>Claimant:</strong>
+  <%= @claim.claimant %>
+</p>
+
+<p>
+  <strong>Insurance company:</strong>
+  <%= @claim.insurance_company %>
+</p>
+
+<p>
+  <strong>Adjustor:</strong>
+  <%= @claim.adjustor %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @claim.doctor %>
+</p>
+
+<p>
+  <strong>Attorney:</strong>
+  <%= @claim.attorney %>
+</p>
+
+<p>
+  <strong>Appointment:</strong>
+  <%= @claim.appointment %>
+</p>
+
+<%= link_to 'Edit', edit_claim_path(@claim) %> |
+<%= link_to 'Back', claims_path %>

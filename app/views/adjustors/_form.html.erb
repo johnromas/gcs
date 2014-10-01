@@ -1,0 +1,41 @@
+<%= form_for(@adjustor) do |f| %>
+  <% if @adjustor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@adjustor.errors.count, "error") %> prohibited this adjustor from being saved:</h2>
+
+      <ul>
+      <% @adjustor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :insurance_company_id %><br>
+    <%= f.text_field :insurance_company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

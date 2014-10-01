@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @insurance_company.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @insurance_company.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @insurance_company.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @insurance_company.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @insurance_company.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @insurance_company.zip %>
+</p>
+
+<%= link_to 'Edit', edit_insurance_company_path(@insurance_company) %> |
+<%= link_to 'Back', insurance_companies_path %>
