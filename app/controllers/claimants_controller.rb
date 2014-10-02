@@ -5,6 +5,7 @@ class ClaimantsController < ApplicationController
   # GET /claimants.json
   def index
     @claimants = Claimant.all
+    @claimant = Claimant.new
   end
 
   # GET /claimants/1
@@ -28,7 +29,7 @@ class ClaimantsController < ApplicationController
 
     respond_to do |format|
       if @claimant.save
-        format.html { redirect_to @claimant, notice: 'Claimant was successfully created.' }
+        format.html { redirect_to claimants_path, notice: 'Claimant was successfully created.' }
         format.json { render action: 'show', status: :created, location: @claimant }
       else
         format.html { render action: 'new' }

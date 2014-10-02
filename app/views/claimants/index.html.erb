@@ -1,43 +1,39 @@
 <h1 class="page-header">Claimants</h1>
 
-<table>
+<table id="claimants-index" class="table">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
       <th>Phone</th>
       <th>Mobile</th>
-      <th>Notes</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @claimants.each do |claimant| %>
-      <tr>
-        <td><%= claimant.first_name %></td>
-        <td><%= claimant.last_name %></td>
-        <td><%= claimant.address %></td>
-        <td><%= claimant.city %></td>
-        <td><%= claimant.state %></td>
-        <td><%= claimant.zip %></td>
-        <td><%= claimant.phone %></td>
-        <td><%= claimant.mobile %></td>
-        <td><%= claimant.notes %></td>
-        <td><%= link_to 'Show', claimant %></td>
-        <td><%= link_to 'Edit', edit_claimant_path(claimant) %></td>
-        <td><%= link_to 'Destroy', claimant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @claimants.each do |claimant| %>
+    <tr>
+      <td><%= link_to claimant.full_name, claimant %></td>
+      <td><%= claimant.address %></td>
+      <td><%= claimant.city %></td>
+      <td><%= claimant.state.name unless claimant.state == nil %></td>
+      <td><%= claimant.zip %></td>
+      <td><%= claimant.phone %></td>
+      <td><%= claimant.mobile %></td>
+      <td>
+        <%= link_to 'Edit', edit_claimant_path(claimant) %> |
+        <%= link_to 'Delete', claimant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Claimant', new_claimant_path %>
+<%= modal title: 'Add a Claimant', button: {class: "btn btn-primary"} do %>
+    <%= render 'form' %>
+<% end %>

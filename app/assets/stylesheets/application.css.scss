@@ -1,3 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+
+.modal-content form {
+	padding: 20px;
+}

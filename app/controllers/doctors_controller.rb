@@ -5,6 +5,7 @@ class DoctorsController < ApplicationController
   # GET /doctors.json
   def index
     @doctors = Doctor.all
+    @doctor = Doctor.new
   end
 
   # GET /doctors/1
@@ -28,7 +29,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
+        format.html { redirect_to doctors_path, notice: 'Doctor was successfully created.' }
         format.json { render action: 'show', status: :created, location: @doctor }
       else
         format.html { render action: 'new' }
@@ -56,7 +57,7 @@ class DoctorsController < ApplicationController
   def destroy
     @doctor.destroy
     respond_to do |format|
-      format.html { redirect_to doctors_url }
+      format.html { redirect_to doctors_url, notice: "#{@doctor.full_name} was successfully deleted" }
       format.json { head :no_content }
     end
   end

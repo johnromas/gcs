@@ -5,6 +5,7 @@ class AdjustorsController < ApplicationController
   # GET /adjustors.json
   def index
     @adjustors = Adjustor.all
+    @adjustor = Adjustor.new
   end
 
   # GET /adjustors/1
@@ -28,7 +29,7 @@ class AdjustorsController < ApplicationController
 
     respond_to do |format|
       if @adjustor.save
-        format.html { redirect_to @adjustor, notice: 'Adjustor was successfully created.' }
+        format.html { redirect_to adjustors_path, notice: 'Adjustor was successfully created.' }
         format.json { render action: 'show', status: :created, location: @adjustor }
       else
         format.html { render action: 'new' }

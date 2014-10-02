@@ -1,37 +1,37 @@
 <h1 class="page-header">Insurance Companies</h1>
 
-<table>
+<table id="insurance-companies-index" class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Phone</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Phone</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @insurance_companies.each do |insurance_company| %>
-      <tr>
-        <td><%= insurance_company.name %></td>
-        <td><%= insurance_company.phone %></td>
-        <td><%= insurance_company.address %></td>
-        <td><%= insurance_company.city %></td>
-        <td><%= insurance_company.state %></td>
-        <td><%= insurance_company.zip %></td>
-        <td><%= link_to 'Show', insurance_company %></td>
-        <td><%= link_to 'Edit', edit_insurance_company_path(insurance_company) %></td>
-        <td><%= link_to 'Destroy', insurance_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @insurance_companies.each do |insurance_company| %>
+    <tr>
+      <td><%= link_to insurance_company.name, insurance_company %></td>
+      <td><%= insurance_company.address %></td>
+      <td><%= insurance_company.city %></td>
+      <td><%= insurance_company.state.name unless insurance_company.state == nil  %></td>
+      <td><%= insurance_company.zip %></td>
+      <td><%= insurance_company.phone %></td>
+      <td>
+        <%= link_to 'Edit', edit_insurance_company_path(insurance_company) %> |
+        <%= link_to 'Delete', insurance_company, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Insurance company', new_insurance_company_path %>
+<%= modal title: 'Add an Insurance Company', button: {class: "btn btn-primary"} do %>
+    <%= render 'form' %>
+<% end %>

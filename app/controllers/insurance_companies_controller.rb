@@ -5,6 +5,7 @@ class InsuranceCompaniesController < ApplicationController
   # GET /insurance_companies.json
   def index
     @insurance_companies = InsuranceCompany.all
+    @insurance_company = InsuranceCompany.new
   end
 
   # GET /insurance_companies/1
@@ -28,7 +29,7 @@ class InsuranceCompaniesController < ApplicationController
 
     respond_to do |format|
       if @insurance_company.save
-        format.html { redirect_to @insurance_company, notice: 'Insurance company was successfully created.' }
+        format.html { redirect_to insurance_companies_path, notice: 'Insurance company was successfully created.' }
         format.json { render action: 'show', status: :created, location: @insurance_company }
       else
         format.html { render action: 'new' }

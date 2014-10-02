@@ -12,7 +12,7 @@
 
 <p>
   <strong>Insurance company:</strong>
-  <%= @claim.insurance_company.name %>
+  <%= @claim.insurance_company.name unless @claim.insurance_company == nil %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Doctor:</strong>
-  <%= @claim.appointment.doctor.full_name %>
+  <%= @claim.appointment.doctor.full_name unless @claim.doctor == nil %>
 </p>
 
 <p>
@@ -32,8 +32,8 @@
 
 <p>
   <strong>Appointment:</strong>
-  <%= @claim.appointment.date %><br>
-  <%= @claim.appointment.time %>
+  <%= @claim.appointment.date unless @claim.appointment == nil%><br>
+  <%= @claim.appointment.time unless @claim.appointment == nil%>
 </p>
 
 <%= link_to 'Edit', edit_claim_path(@claim) %> |
