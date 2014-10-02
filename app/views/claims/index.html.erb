@@ -33,4 +33,6 @@
 
 <br>
 
-<%= link_to 'New Claim', new_claim_path %>
+<%= modal title: 'Add a Claim', button: {class: "btn btn-primary"} do %>
+    <%= render 'form' %>
+<% end %>
