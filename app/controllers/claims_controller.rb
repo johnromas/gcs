@@ -5,6 +5,7 @@ class ClaimsController < ApplicationController
   # GET /claims.json
   def index
     @claims = Claim.all
+    @claim = Claim.new
   end
 
   # GET /claims/1
