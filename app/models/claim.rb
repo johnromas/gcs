@@ -5,4 +5,7 @@ class Claim < ActiveRecord::Base
   belongs_to :doctor
   belongs_to :attorney
   belongs_to :appointment
+
+  validates_presence_of :number, :claimant_id
+
 end
