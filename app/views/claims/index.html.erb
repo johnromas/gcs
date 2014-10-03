@@ -8,7 +8,6 @@
       <th>Insurance Company</th>
       <th>Adjustor</th>
       <th>Attorney</th>
-      <th>Appointment Date/Time</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -20,7 +19,6 @@
       <td><%= claim.insurance_company.name unless claim.insurance_company == nil %></td>
       <td><%= claim.adjustor.full_name unless claim.adjustor == nil %></td>
       <td></td>
-      <td><%= claim.appointment.date unless claim.appointment == nil %> | <%= claim.appointment.time unless claim.appointment == nil  %></td>
       <td>
         <%= link_to 'Edit', edit_claim_path(claim) %> |
         <%= link_to 'Delete', claim, method: :delete, data: { confirm: 'Are you sure?' } %>

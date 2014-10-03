@@ -4,8 +4,11 @@ class Claim < ActiveRecord::Base
   belongs_to :adjustor
   belongs_to :doctor
   belongs_to :attorney
-  belongs_to :appointment
+  has_many :appointments
 
-  validates_presence_of :number, :claimant_id
+  accepts_nested_attributes_for :appointments
+  accepts_nested_attributes_for :claimant
+  
+  validates_presence_of :number
 
 end

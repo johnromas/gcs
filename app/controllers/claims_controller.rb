@@ -6,6 +6,8 @@ class ClaimsController < ApplicationController
   def index
     @claims = Claim.all
     @claim = Claim.new
+    @claim.appointments.build
+    # @appointment = @claim.appointments.build(appointment_params)
   end
 
   # GET /claims/1
@@ -16,6 +18,10 @@ class ClaimsController < ApplicationController
   # GET /claims/new
   def new
     @claim = Claim.new
+    @appointment = Appointment.new
+    @claim.appointments.build
+    @claim.build_claimant
+
   end
 
   # GET /claims/1/edit
@@ -70,6 +76,6 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :appointment_id)
+      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name])
     end
 end

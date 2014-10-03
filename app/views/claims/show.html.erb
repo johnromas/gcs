@@ -21,20 +21,23 @@
 </p>
 
 <p>
-  <strong>Doctor:</strong>
-  <%= @claim.appointment.doctor.full_name unless @claim.doctor == nil %>
-</p>
-
-<p>
   <strong>Attorney:</strong>
   <%= @claim.attorney %>
 </p>
 
+<% @claim.appointments.each do |appointment| %>
+
 <p>
   <strong>Appointment:</strong>
-  <%= @claim.appointment.date unless @claim.appointment == nil%><br>
-  <%= @claim.appointment.time unless @claim.appointment == nil%>
+  <%= appointment.date unless appointment == nil%><br>
+  <%= appointment.time unless appointment == nil%>
 </p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= appointment.doctor.full_name unless appointment.doctor == nil %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_claim_path(@claim) %> |
 <%= link_to 'Back', claims_path %>
