@@ -19,5 +19,6 @@
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
+//= require bootstrap-switch.min.js
 //= require turbolinks
 //= require_tree .

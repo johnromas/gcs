@@ -1,12 +1,13 @@
 class ClaimsController < ApplicationController
   before_action :set_claim, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_params, only: [:create, :update]
   # GET /claims
   # GET /claims.json
   def index
     @claims = Claim.all
     @claim = Claim.new
     @claim.appointments.build
+    @claim.build_claimant
     # @appointment = @claim.appointments.build(appointment_params)
   end
 
@@ -18,10 +19,8 @@ class ClaimsController < ApplicationController
   # GET /claims/new
   def new
     @claim = Claim.new
-    @appointment = Appointment.new
     @claim.appointments.build
     @claim.build_claimant
-
   end
 
   # GET /claims/1/edit
@@ -33,6 +32,7 @@ class ClaimsController < ApplicationController
   def create
     @claim = Claim.new(claim_params)
 
+    binding.pry
     respond_to do |format|
       if @claim.save
         format.html { redirect_to claims_path, notice: 'Claim was successfully created.' }
@@ -76,6 +76,15 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name])
+      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :notes])
+    end
+
+    #Remove unnecessary attributes when creating/updating claimant info
+    def check_params
+      if !params[:claim][:claimant_id].blank?
+        params[:claim].delete(:claimant_attributes)
+      else
+        params[:claim].delete(:claimant_id)
+      end
     end
 end
