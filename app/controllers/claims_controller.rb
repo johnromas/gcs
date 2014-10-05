@@ -14,6 +14,11 @@ class ClaimsController < ApplicationController
   # GET /claims/1
   # GET /claims/1.json
   def show
+    @claimant = @claim.claimant
+    @appointment = @claim.appointments.first
+    @doctor = @appointment.doctor
+    @adjustor = @claim.adjustor
+    @insurance_company = @claim.insurance_company
   end
 
   # GET /claims/new
@@ -76,7 +81,7 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :notes])
+      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :service, :insured, :case, :date_of_injury, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :email, :ssn, :dob, :gender, :notes])
     end
 
     #Remove unnecessary attributes when creating/updating claimant info

@@ -34,6 +34,18 @@
   </div>
   <div class="field">
     <%= f.phone_field :mobile, class: "phone-input" %>
+  </div>  
+  <div class="field">
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.text_field :ssn, label: "SSN", class: "ssn-input" %>
+  </div>
+  <div class="field">
+    <%= f.date_field :dob, label: "DOB" %>
+  </div>
+  <div class="field">
+    <%= f.date_field :gender%>
   </div>
   <div class="field">
     <%= f.text_area :notes %>

@@ -16,6 +16,10 @@
     <div class='panel-body'>  
       <div class="field">
         <%= f.text_field :number, label: "Claim #" %>
+        <%= f.text_field :service %>
+        <%= f.text_field :insured %>
+        <%= f.text_field :case %>
+        <%= f.date_field :date_of_injury %>
       </div>
     </div>
   <% end %>
@@ -56,6 +60,18 @@
           </div>
           <div class="field">
             <%= claimant_form.phone_field :mobile, class: "phone-input" %>
+          </div>
+          <div class="field">
+            <%= claimant_form.email_field :email %>
+          </div>
+          <div class="field">
+            <%= claimant_form.text_field :ssn, label: "SSN", class: "ssn-input" %>
+          </div>
+          <div class="field">
+            <%= claimant_form.date_field :dob, label: "DOB" %>
+          </div>
+          <div class="field">
+            <%= claimant_form.date_field :gender %>
           </div>
           <div class="field">
             <%= claimant_form.text_area :notes, rows: 8 %>

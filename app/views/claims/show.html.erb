@@ -1,43 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1 class="page-header">Referral Report</h1>
 
-<p>
-  <strong>Number:</strong>
-  <%= @claim.number %>
-</p>
+<%= render "appointment" %>
 
-<p>
-  <strong>Claimant:</strong>
-  <%= @claim.claimant.full_name %>
-</p>
+<%= render "patient" %>
 
-<p>
-  <strong>Insurance company:</strong>
-  <%= @claim.insurance_company.name unless @claim.insurance_company == nil %>
-</p>
+<%= render "claim" %>
 
-<p>
-  <strong>Adjustor:</strong>
-  <%= @claim.adjustor.full_name %>
-</p>
 
-<p>
-  <strong>Attorney:</strong>
-  <%= @claim.attorney %>
-</p>
-
-<% @claim.appointments.each do |appointment| %>
-
-<p>
-  <strong>Appointment:</strong>
-  <%= appointment.date unless appointment == nil%><br>
-  <%= appointment.time unless appointment == nil%>
-</p>
-
-<p>
-  <strong>Doctor:</strong>
-  <%= appointment.doctor.full_name unless appointment.doctor == nil %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', edit_claim_path(@claim) %> |
-<%= link_to 'Back', claims_path %>

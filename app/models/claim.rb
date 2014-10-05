@@ -11,4 +11,5 @@ class Claim < ActiveRecord::Base
   
   validates_presence_of :number
 
+
 end

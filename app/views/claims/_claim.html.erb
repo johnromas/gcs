@@ -1,0 +1,9 @@
+<%= panel tag: :aside do %>
+   <div class='panel-heading'><h4>Claim Information</h4></div>
+    <div class='panel-body'>
+      <div class="row">
+        <%= referral_label(["Service:", "Claim:", "Insured:", "Allegation:"]) %>
+        <%= referral_value([@claim.service, @claim.number, @claim.insured, @claim.case], "4") %>
+      </div>
+    </div>
+<% end %>

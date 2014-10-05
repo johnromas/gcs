@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001202847) do
+ActiveRecord::Schema.define(version: 20141004211703) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20141001202847) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fax"
+    t.string   "email"
   end
 
   add_index "adjustors", ["insurance_company_id"], name: "index_adjustors_on_insurance_company_id"
@@ -50,6 +52,10 @@ ActiveRecord::Schema.define(version: 20141001202847) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ssn"
+    t.string   "email"
+    t.date     "dob"
+    t.string   "gender"
   end
 
   add_index "claimants", ["state_id"], name: "index_claimants_on_state_id"
@@ -63,6 +69,11 @@ ActiveRecord::Schema.define(version: 20141001202847) do
     t.integer  "appointment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "service"
+    t.string   "insured"
+    t.string   "allegation"
+    t.string   "case"
+    t.date     "date_of_injury"
   end
 
   add_index "claims", ["adjustor_id"], name: "index_claims_on_adjustor_id"
