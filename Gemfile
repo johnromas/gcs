@@ -25,6 +25,12 @@ gem 'turbolinks'
 
 gem 'jquery-inputmask-rails'
 
+gem 'pdfkit'
+
+gem 'wkhtmltopdf-binary'
+
+gem 'unicorn', group: :production
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
