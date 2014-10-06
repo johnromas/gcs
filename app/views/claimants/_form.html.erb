@@ -10,46 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.collection_select(:state_id, State.all, :id, :name, {prompt: 'Select State'}) %>
-  </div>
-  <div class="field">
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.phone_field :phone, class: "phone-input" %>
-  </div>
-  <div class="field">
-    <%= f.phone_field :mobile, class: "phone-input" %>
-  </div>  
-  <div class="field">
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ssn, label: "SSN", class: "ssn-input" %>
-  </div>
-  <div class="field">
-    <%= f.date_field :dob, label: "DOB" %>
-  </div>
-  <div class="field">
-    <%= f.date_field :gender%>
-  </div>
-  <div class="field">
-    <%= f.text_area :notes %>
-  </div>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :address %>
+  <%= f.text_field :city %>
+  <%= f.collection_select(:state_id, State.all, :id, :name, {prompt: 'Select State'}) %>
+  <%= f.text_field :zip %>
+  <%= f.phone_field :phone, class: "phone-input" %>
+  <%= f.phone_field :mobile, class: "phone-input" %>
+  <%= f.email_field :email %>
+  <%= f.text_field :ssn, label: "SSN", class: "ssn-input" %>
+  <%= f.date_field :dob, label: "DOB" %>
+  <%= f.date_field :gender%>
+  <%= f.text_area :notes %>
   <div class="actions">
     <%= f.submit %>
   </div>

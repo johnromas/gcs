@@ -10,22 +10,11 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.hidden_field :claim_id, value: @claim.id %>
-  </div>
-  <div class="field">
-    <%= f.date_field :date %>
-  </div>
-  <div class="field">
-    <%= f.time_field :time %>
-  </div>
-  <div class="field">
-    <%= f.collection_select(:doctor_id, Doctor.all, :id, :full_name, {prompt: 'Select Doctor'}) %>
-  </div>
-  <div class="field">
-    <%= f.collection_select(:claim_id, Claim.all, :id, :number, {prompt: 'Select Claim'}) %>
-  </div>
+  <%= f.hidden_field :claim_id, value: @claim.id %>
+  <%= f.date_field :date %>
+  <%= f.time_field :time %>
+  <%= f.collection_select(:doctor_id, Doctor.all, :id, :full_name, {prompt: 'Select Doctor'}) %>
+  <%= f.collection_select(:claim_id, Claim.all, :id, :number, {prompt: 'Select Claim'}) %>
   <div class="actions">
     <%= f.submit %>
   </div>

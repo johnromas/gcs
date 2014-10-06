@@ -10,25 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company'}) %>
-  </div>
-  <div class="field">
-    <%= f.text_field :first_name%>
-  </div>
-  <div class="field">
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.phone_field :phone, class: "phone-input" %>
-  </div>
-  <div class="field">
-    <%= f.phone_field :mobile, class: "phone-input" %>
-  </div>
-  <div class="field">
-    <%= f.text_area :notes %>
-  </div>
+  <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company'}) %>
+  <%= f.text_field :first_name%>
+  <%= f.text_field :last_name %>
+  <%= f.phone_field :phone, class: "phone-input" %>
+  <%= f.phone_field :mobile, class: "phone-input" %>
+  <%= f.text_area :notes %>
   <div class="actions">
     <%= f.submit %>
   </div>
