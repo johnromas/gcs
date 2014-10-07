@@ -58,10 +58,10 @@
   <%= panel tag: :aside, context: :primary do %>
     <div class='panel-heading'>Appointment</div>
     <div class='panel-body'>
-      <%= f.fields_for :appointments do |appointments_form| %>
-        <%= appointments_form.date_field :date %>
-        <%= appointments_form.time_field :time %>
-        <%= appointments_form.collection_select(:doctor_id, Doctor.all, :id, :full_name, {prompt: 'Select Doctor'}) %>
+      <%= f.fields_for :appointment do |appointment_form| %>
+        <%= appointment_form.date_field :date %>
+        <%= appointment_form.time_field :time %>
+        <%= appointment_form.collection_select(:doctor_id, Doctor.all, :id, :full_name, {prompt: 'Select Doctor'}) %>
       <% end %>
     </div>
   <% end %>

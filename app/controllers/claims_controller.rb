@@ -6,8 +6,13 @@ class ClaimsController < ApplicationController
   def index
     @claims = Claim.all
     @claim = Claim.new
-    @claim.appointments.build
+    @claim.build_appointment
     @claim.build_claimant
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @claims }
+      format.json { render json: @claims }
+    end
     # @appointment = @claim.appointments.build(appointment_params)
   end
 
@@ -15,8 +20,8 @@ class ClaimsController < ApplicationController
   # GET /claims/1.json
   def show
     @claimant = @claim.claimant
-    @appointment = @claim.appointments.first
-    @doctor = @appointment.doctor
+    @appointment = @claim.appointment
+    @doctor = @appointment.doctor if @appointment.present?
     @adjustor = @claim.adjustor
     @insurance_company = @claim.insurance_company
   end
@@ -24,7 +29,7 @@ class ClaimsController < ApplicationController
   # GET /claims/new
   def new
     @claim = Claim.new
-    @claim.appointments.build
+    @claim.build_appointment
     @claim.build_claimant
   end
 
@@ -81,7 +86,7 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :service, :insured, :case, :date_of_injury, appointments_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :email, :ssn, :dob, :gender, :notes])
+      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :service, :insured, :case, :date_of_injury, appointment_attributes: [:id, :date, :time, :doctor_id], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :email, :ssn, :dob, :gender, :notes])
     end
 
     #Remove unnecessary attributes when creating/updating claimant info

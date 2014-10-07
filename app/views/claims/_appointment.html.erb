@@ -3,7 +3,7 @@
   <div class='panel-body'>
     <div class="row">
       <%= referral_label(["Appointment Date:", "Time:"]) %>
-      <%= referral_value([@appointment.date.strftime("%D"), @appointment.time.strftime("%r")], "2") %>
+      <%= referral_value([@appointment.date.strftime("%D"), @appointment.time.strftime("%r")], "2")  %>
       <%= referral_label(["Physician:", "LOS:"]) %>
       <%= referral_value([@doctor.full_name, @doctor.city], "2") %>
       <%= referral_label(["Claim #:", "Phone:"]) %>

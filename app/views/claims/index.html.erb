@@ -1,13 +1,13 @@
 <h1 class="page-header">Claims</h1>
-
 <table id="claims-index" class="table">
   <thead>
     <tr>
       <th>Claim #</th>
       <th>Claimant</th>
+      <th>Physician</th>
       <th>Insurance Company</th>
       <th>Adjustor</th>
-      <th>Attorney</th>
+      <th>Appointment</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -16,9 +16,10 @@
     <tr>
       <td><%= link_to claim.number, claim %></td>
       <td><%= claim.claimant.full_name unless claim.claimant == nil %></td>
+      <td><%= claim.appointment.doctor.full_name %></td>
       <td><%= claim.insurance_company.name unless claim.insurance_company == nil %></td>
       <td><%= claim.adjustor.full_name unless claim.adjustor == nil %></td>
-      <td></td>
+      <td><%= claim.appointment.date.strftime("%D") %> @ <%= claim.appointment.time.strftime("%r") %></td>
       <td>
         <%= link_to 'Edit', edit_claim_path(claim) %> |
         <%= link_to 'Delete', claim, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -28,9 +29,7 @@
   </tbody>
 </table>
 
-
 <br>
 
-<%= modal title: 'Add a Claim', button: {class: "btn btn-primary"} do %>
-  <%= render 'form' %>
-<% end %>
+<%= link_to "Add a Claim", new_claim_path, class: "btn btn-primary" %>
+
