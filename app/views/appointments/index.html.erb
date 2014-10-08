@@ -1,6 +1,6 @@
 <h1 class="page-header">Appointments</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Date</th>
@@ -16,10 +16,11 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.date %></td>
-        <td><%= appointment.time %></td>
-        <td><%= appointment.doctor %></td>
-        <td><%= appointment.claim %></td>
+        <td><%= appointment.date.strftime("%D") %></td>
+        <td><%= appointment.time.strftime("%r") %></td>
+        <td><%= appointment.doctor.try(:full_name) %></td>
+        <td><%= appointment.claim.claimant.full_name %></td>
+        <td><%= appointment.claim.number %></td>
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,15 +5,9 @@ class ClaimsController < ApplicationController
   # GET /claims.json
   def index
     @claims = Claim.all
-    @claim = Claim.new
-    @claim.build_appointment
-    @claim.build_claimant
-    respond_to do |format|
-      format.html
-      format.xml { render xml: @claims }
-      format.json { render json: @claims }
-    end
-    # @appointment = @claim.appointments.build(appointment_params)
+    # @claim = Claim.new
+    # @claim.build_appointment
+    # @claim.build_claimant
   end
 
   # GET /claims/1
