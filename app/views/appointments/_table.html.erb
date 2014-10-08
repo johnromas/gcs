@@ -1,0 +1,29 @@
+<table id="appointments-index" class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Doctor</th>
+      <th>Claimant</th>
+      <th>Claim #</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.date.strftime("%D") %></td>
+        <td><%= appointment.time.strftime("%r") %></td>
+        <td><%= appointment.doctor.try(:full_name) %></td>
+        <td><%= appointment.claim.try(:claimant).try(:full_name) %></td>
+        <td><%= appointment.claim.try(:number) %></td>
+        <td><%= link_to 'Show', appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <%= panel_row column_class: 'col-sm-4' do %>
   <%= panel title: 'General Info', context: :info do %>
     <p class="panel-body">
@@ -99,6 +98,8 @@
     </p>
   <% end %>
 <% end %>
+
+<%= render 'appointments/table' %>
 
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |

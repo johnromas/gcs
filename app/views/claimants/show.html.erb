@@ -22,7 +22,7 @@
 
 <p>
   <strong>State:</strong>
-  <%= @claimant.state %>
+  <%= @claimant.state.try(:name) %>
 </p>
 
 <p>

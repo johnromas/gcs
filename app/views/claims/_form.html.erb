@@ -66,6 +66,12 @@
       <% end %>
     </div>
   <% end %>
+  <%= panel tag: :aside, context: :primary do %>
+    <div class='panel-heading'>Notes</div>
+    <div class='panel-body'>
+      <%= f.text_area :notes, rows: 8 %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Save", { class: "btn btn-block btn-primary pull-right" }%>
   </div>

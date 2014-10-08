@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  $('#appointments-index').dataTable()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
