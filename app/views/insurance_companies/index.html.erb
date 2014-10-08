@@ -18,7 +18,7 @@
       <td><%= link_to insurance_company.name, insurance_company %></td>
       <td><%= insurance_company.address %></td>
       <td><%= insurance_company.city %></td>
-      <td><%= insurance_company.state.name unless insurance_company.state == nil  %></td>
+      <td><%= insurance_company.state.try(:name) %></td>
       <td><%= insurance_company.zip %></td>
       <td><%= insurance_company.phone %></td>
       <td>

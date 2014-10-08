@@ -22,7 +22,7 @@
     <div class='panel-body'>
       <div class="row">
         <%= referral_label(["Adjuster:", "Company:"]) %>
-        <%= referral_value(["#{@adjustor.full_name} (#{@insurance_company.name})", @insurance_company.address, "#{@insurance_company.city}, #{@insurance_company.state.abbr}, #{@insurance_company.zip}"], "9") %>
+        <%= referral_value(["#{@adjustor.full_name} (#{@insurance_company.name})", @insurance_company.address, "#{@insurance_company.city}, #{@insurance_company.state.try(:abbr)}, #{@insurance_company.zip}"], "9") %>
       </div>
       <div class="row">
         <%= referral_label(["Phone:", "Email:"]) %>

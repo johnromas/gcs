@@ -19,7 +19,7 @@
       <td><%= link_to doctor.full_name, doctor %></td>
       <td><%= doctor.address %></td>
       <td><%= doctor.city %></td>
-      <td><%= doctor.state.name unless doctor.state == nil  %></td>
+      <td><%= doctor.state.try(:name) %></td>
       <td><%= doctor.zip %></td>
       <td><%= doctor.phone %></td>
       <td><%= doctor.mobile %></td>

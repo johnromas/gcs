@@ -1,4 +1,5 @@
 Gcs::Application.routes.draw do
+  get "dashboard" => "dashboard#index", as: "dashboard"
   resources :attorneys
 
   resources :documents

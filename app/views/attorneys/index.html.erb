@@ -22,7 +22,7 @@
         <td><%= attorney.last_name %></td>
         <td><%= attorney.address %></td>
         <td><%= attorney.city %></td>
-        <td><%= attorney.state %></td>
+        <td><%= attorney.state.try(:abbr) %></td>
         <td><%= attorney.zip %></td>
         <td><%= attorney.phone %></td>
         <td><%= attorney.email %></td>

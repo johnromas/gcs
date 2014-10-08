@@ -14,7 +14,7 @@
   <% @adjustors.each do |adjustor| %>
     <tr>
       <td><%= link_to adjustor.full_name, adjustor %></td>
-      <td><%= adjustor.insurance_company.name unless adjustor.insurance_company == nil %></td>
+      <td><%= adjustor.try(:insurance_company).try(:name) %></td>
       <td><%= adjustor.phone %></td>
       <td><%= adjustor.mobile %></td>
       <td>

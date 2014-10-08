@@ -1,0 +1,31 @@
+<table id="claimants-index" class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Mobile</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @claimants.each do |claimant| %>
+    <tr>
+      <td><%= link_to claimant.full_name, claimant %></td>
+      <td><%= claimant.address %></td>
+      <td><%= claimant.city %></td>
+      <td><%= claimant.try(:state).try(:name)  %></td>
+      <td><%= claimant.zip %></td>
+      <td><%= claimant.phone %></td>
+      <td><%= claimant.mobile %></td>
+      <td>
+        <%= link_to 'Edit', edit_claimant_path(claimant) %> |
+        <%= link_to 'Delete', claimant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

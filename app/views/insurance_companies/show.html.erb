@@ -22,7 +22,7 @@
 
 <p>
   <strong>State:</strong>
-  <%= @insurance_company.state %>
+  <%= @insurance_company.state.try(:name) %>
 </p>
 
 <p>
