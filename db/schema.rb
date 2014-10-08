@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004211703) do
+ActiveRecord::Schema.define(version: 20141008175003) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 20141004211703) do
 
   add_index "appointments", ["claim_id"], name: "index_appointments_on_claim_id"
   add_index "appointments", ["doctor_id"], name: "index_appointments_on_doctor_id"
+
+  create_table "attorneys", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attorneys", ["state_id"], name: "index_attorneys_on_state_id"
 
   create_table "claimants", force: true do |t|
     t.string   "first_name"
@@ -94,6 +109,24 @@ ActiveRecord::Schema.define(version: 20141004211703) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "credentials"
+    t.string   "active_practice"
+    t.string   "board_certified"
+    t.string   "fax"
+    t.string   "email"
+    t.decimal  "ime_charge"
+    t.decimal  "no_show_fee"
+    t.decimal  "deposition_fee"
+    t.decimal  "deposition_cancel_fee"
+    t.decimal  "record_review_fee"
+    t.string   "tax_id"
+    t.string   "license_number"
+    t.string   "approx_turn_around"
+    t.boolean  "dictation_service_interest"
+    t.string   "poc_first_name"
+    t.string   "poc_last_name"
+    t.string   "poc_phone"
+    t.string   "poc_email"
   end
 
   add_index "doctors", ["state_id"], name: "index_doctors_on_state_id"

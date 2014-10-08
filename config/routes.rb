@@ -1,4 +1,6 @@
 Gcs::Application.routes.draw do
+  resources :attorneys
+
   resources :documents
 
   resources :appointments

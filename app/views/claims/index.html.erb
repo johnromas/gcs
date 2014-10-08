@@ -16,7 +16,7 @@
     <tr>
       <td><%= link_to claim.number, claim %></td>
       <td><%= claim.claimant.try(:full_name) unless claim.claimant == nil %></td>
-      <td><%= claim.appointment.doctor.try(:full_name) %></td>
+      <td><%= link_to claim.appointment.doctor.try(:full_name), doctor_path(claim.appointment.doctor) %></td>
       <td><%= claim.insurance_company.try(:name) unless claim.insurance_company == nil %></td>
       <td><%= claim.adjustor.try(:full_name) unless claim.adjustor == nil %></td>
       <td><%= claim.appointment.try(:date).strftime("%D") %> @ <%= claim.appointment.time.strftime("%r") %></td>

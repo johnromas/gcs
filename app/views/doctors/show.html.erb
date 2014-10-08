@@ -1,49 +1,107 @@
 <p id="notice"><%= notice %></p>
+<%= panel_row column_class: 'col-sm-4' do %>
+  <%= panel title: 'General Info', context: :info do %>
+    <p class="panel-body">
+      <strong>First name:</strong>
+        <%= @doctor.first_name %>
+    </p>
+    <p class="panel-body">
+      <strong>Last name:</strong>
+      <%= @doctor.last_name %>
+    </p>
+    <p class="panel-body">
+      <strong>Address:</strong>
+      <%= @doctor.address %>
+    </p>
+    <p class="panel-body">
+      <strong>City:</strong>
+      <%= @doctor.city %>
+    </p>
+    <p class="panel-body">
+      <strong>State:</strong>
+      <%= @doctor.state.try(:name) %>
+    </p>
+    <p class="panel-body">
+      <strong>Zip:</strong>
+      <%= @doctor.zip %>
+    </p>
+    <p class="panel-body">
+      <strong>Phone:</strong>
+      <%= @doctor.phone %>
+    </p>
+    <p class="panel-body">
+      <strong>Mobile:</strong>
+      <%= @doctor.mobile %>
+    </p>
+    <p class="panel-body">
+      <strong>Fax:</strong>
+      <%= @doctor.fax %>
+    </p>
+    <p class="panel-body">
+      <strong>Email:</strong>
+      <%= @doctor.email %>
+    </p>
+    <p class="panel-body">
+      <strong>Notes:</strong>
+      <%= @doctor.notes %>
+    </p>
+  <% end %>
+  <%= panel title: 'Practice Info', context: :info do %>
+    <p class="panel-body">
+      <strong>Credentials:</strong>
+        <%= @doctor.credentials %>
+    </p>
+    <p class="panel-body">
+      <strong>Active Practice:</strong>
+      <%= @doctor.active_practice %>
+    </p>
+    <p class="panel-body">
+      <strong>Board Certified:</strong>
+      <%= @doctor.board_certified %>
+    </p>
+    <p class="panel-body">
+      <strong>Tax ID:</strong>
+      <%= @doctor.tax_id %>
+    </p>
+    <p class="panel-body">
+      <strong>License #:</strong>
+      <%= @doctor.license_number %>
+    </p>
+    <p class="panel-body">
+      <strong>Approx. Turn Around:</strong>
+      <%= @doctor.approx_turn_around %>
+    </p>
+    <p class="panel-body">
+      <strong>Dictation Service Interest:</strong>
+      <%= @doctor.dictation_service_interest %>
+    </p>
+  <% end %>
+  <%= panel title: 'Fees', context: :info do %>
+    <p class="panel-body">
+      <strong>IME Fee:</strong>
+      <%= number_to_currency(@doctor.ime_charge) %>
+    </p>
+    <p class="panel-body">
+      <strong>No Show Charge:</strong>
+      <%= number_to_currency(@doctor.no_show_fee) %>
+    </p>
+    <p class="panel-body">
+      <strong>Deposition Fee:</strong>
+      <%= number_to_currency(@doctor.deposition_fee) %>
+    </p>
+    <p class="panel-body">
+      <strong>Deposition Cancellation Fee:</strong>
+      <%= number_to_currency(@doctor.deposition_cancel_fee) %>
+    </p>
+    <p class="panel-body">
+      <strong>Record Review Fee:</strong>
+      <%= number_to_currency(@doctor.record_review_fee) %>
+    </p>
+  <% end %>
+<% end %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @doctor.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @doctor.last_name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @doctor.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @doctor.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @doctor.state.name %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @doctor.zip %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @doctor.phone %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @doctor.mobile %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @doctor.notes %>
-</p>
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
+
+

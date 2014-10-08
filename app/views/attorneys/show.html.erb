@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @attorney.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @attorney.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @attorney.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @attorney.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @attorney.state.try(:name) %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @attorney.zip %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @attorney.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @attorney.email %>
+</p>
+
+<%= link_to 'Edit', edit_attorney_path(@attorney) %> |
+<%= link_to 'Back', attorneys_path %>

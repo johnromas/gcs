@@ -53,6 +53,7 @@
     <div class='panel-body'>
       <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company'}) %>
       <%= f.collection_select(:adjustor_id, Adjustor.all, :id, :full_name, {prompt: 'Select Adjustor'}) %>
+      <%= f.collection_select(:attorney_id, Attorney.all, :id, :full_name, {prompt: 'Select Attorney'}) %>
     </div>
   <% end %>
   <%= panel tag: :aside, context: :primary do %>

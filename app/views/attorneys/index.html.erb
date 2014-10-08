@@ -1,0 +1,41 @@
+<h1>Listing attorneys</h1>
+
+<table id="attorneys-index" class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attorneys.each do |attorney| %>
+      <tr>
+        <td><%= attorney.first_name %></td>
+        <td><%= attorney.last_name %></td>
+        <td><%= attorney.address %></td>
+        <td><%= attorney.city %></td>
+        <td><%= attorney.state %></td>
+        <td><%= attorney.zip %></td>
+        <td><%= attorney.phone %></td>
+        <td><%= attorney.email %></td>
+        <td>
+          <%= link_to 'Show', attorney %>
+          <%= link_to 'Edit', edit_attorney_path(attorney) %>
+          <%= link_to 'Destroy', attorney, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attorney', new_attorney_path %>

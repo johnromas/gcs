@@ -29,7 +29,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to doctors_path, notice: 'Doctor was successfully created.' }
+        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
         format.json { render action: 'show', status: :created, location: @doctor }
       else
         format.html { render action: 'new' }
@@ -70,6 +70,6 @@ class DoctorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doctor_params
-      params.require(:doctor).permit(:first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :notes)
+      params.require(:doctor).permit(:first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :notes, :fax, :email, :credentials, :active_practice, :board_certified, :ime_charge, :no_show_fee, :deposition_fee, :deposition_cancel_fee, :record_review_fee, :tax_id, :license_number, :approx_turn_around, :dictation_service_interest, :poc_first_name, :poc_last_name, :poc_phone, :poc_email)
     end
 end

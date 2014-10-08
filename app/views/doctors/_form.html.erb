@@ -10,16 +10,57 @@
       </ul>
     </div>
   <% end %>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :address %>
-  <%= f.text_field :city %>
-  <%= f.collection_select(:state_id, State.all, :id, :name, {prompt: 'Select State'}) %>
-  <%= f.text_field :zip %>
-  <%= f.phone_field :phone, class: "phone-input" %>
-  <%= f.phone_field :mobile, class: "phone-input" %>
-  <%= f.text_area :notes %>
+  <%= panel tag: :aside do %>
+    <div class='panel-heading'><h4>General Info</h4></div>
+    <div class='panel-body'>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :address %>
+      <%= f.text_field :city %>
+      <%= f.collection_select(:state_id, State.all, :id, :name, {prompt: 'Select State'}) %>
+      <%= f.text_field :zip %>
+      <%= f.phone_field :phone, class: "phone-input" %>
+      <%= f.phone_field :mobile, class: "phone-input" %>
+      <%= f.text_field :fax, class: "phone-input" %>
+      <%= f.text_field :email %>
+      <%= f.text_area :notes %>
+    </div>
+  <% end %>
+  <%= panel tag: :aside do %>
+    <div class='panel-heading'><h4>Practice Info</h4></div>
+    <div class='panel-body'>
+      <%= f.text_field :credentials %>
+      <%= f.text_field :active_practice, label: "Active Practice" %>
+      <%= f.text_field :board_certified, label: "Board Certified" %>
+      <%= f.text_field :tax_id, label: "Tax ID" %>
+      <%= f.text_field :license_number, label: "License #" %>
+      <%= f.text_field :approx_turn_around, label: "Approx. Turn Around" %>
+      <%= f.text_field :dictation_service_interest, label: "Dictation Service Interest" %>
+    </div>
+  <% end %>
+  <%= panel tag: :aside do %>
+    <div class='panel-heading'><h4>Fees</h4></div>
+    <div class='panel-body'>
+      <%= f.number_field :ime_charge, label: "IME Fee" %>
+      <%= f.number_field :no_show_fee, label: "No Show Fee" %>
+      <%= f.number_field :deposition_fee, label: "Deposition Fee" %>
+      <%= f.number_field :deposition_cancel_fee, label: "Deposition Cancellation Fee" %>
+      <%= f.number_field :record_review_fee, label: "Record Review Fee" %>
+    </div>
+  <% end %>
+  <%= panel tag: :aside do %>
+    <div class='panel-heading'><h4>Point of Contact</h4></div>
+    <div class='panel-body'>
+      <%= f.text_field :poc_first_name, label: "First Name" %>
+      <%= f.text_field :poc_last_name, label: "Last Name" %>
+      <%= f.text_field :poc_phone, label: "Phone", class: "phone-input" %>
+      <%= f.text_field :poc_email, label: "Email" %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+   
