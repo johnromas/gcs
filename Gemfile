@@ -27,6 +27,8 @@ gem 'jquery-inputmask-rails'
 
 gem 'pdfkit'
 
+gem 'newrelic_rpm'
+
 gem 'wkhtmltopdf-binary'
 
 gem 'devise'

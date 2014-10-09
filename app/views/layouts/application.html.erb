@@ -35,8 +35,10 @@
         <% end %>
       <% else %>
         <%= nav class: 'navbar-right' do %>
-          <%= link_to "Home", root_path %>
-          <%= link_to "Sign In", new_user_session_path %>
+          <%= horizontal do %>
+            <%= link_to "Home", root_path %>
+            <%= link_to "Sign In", new_user_session_path %>
+          <% end %>
         <% end %>     
       <% end %>
     <% end %>
