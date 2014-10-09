@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6">
-  <%= panel tag: :aside do %>
-   <div class='panel-heading'><h4>Patient Information</h4></div>
+  <%= panel tag: :aside, context: :primary do %>
+   <div class='panel-heading'><h4 class="panel-title">Patient Information</h4></div>
     <div class='panel-body'>
       <div class="row">
         <%= referral_label(["Patient:"]) %>
@@ -17,8 +17,8 @@
   <% end %>
   </div>
   <div class="col-md-6">
-  <%= panel tag: :aside do %>
-   <div class='panel-heading'><h4>Adjustor/Company Information</h4></div>
+  <%= panel tag: :aside, context: :primary do %>
+   <div class='panel-heading'><h4 class="panel-title">Adjustor/Company Information</h4></div>
     <div class='panel-body'>
       <div class="row">
         <%= referral_label(["Adjuster:", "Company:"]) %>
