@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  $('#insurance-companies-index').dataTable()
+  $('#insurance-index').dataTable()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
