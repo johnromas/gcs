@@ -5,7 +5,7 @@
       <th>Date</th>
       <th>Time</th>
       <th>Doctor</th>
-      <th>Claim #</th>
+      <th class="hidden-xs">Claim #</th>
   </thead>
 
   <tbody>
@@ -15,7 +15,7 @@
         <td><%= appointment.try(:date).strftime("%D") %></td>
         <td><%= appointment.try(:time).strftime("%r") %></td>
         <td><%= appointment.doctor.try(:full_name) %></td>
-        <td><%= appointment.claim.try(:number) %></td>
+        <td class="hidden-xs"><%= appointment.claim.try(:number) %></td>
       </tr>
     <% end %>
   </tbody>

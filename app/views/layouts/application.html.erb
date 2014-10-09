@@ -9,13 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+    <div class="container">
+  
     <%= navbar fluid: true, position: :static do %>
       <%= vertical do %>
         <%= link_to 'GCS', root_path %>
       <% end %>
-      <%= horizontal do %>
-        <%= nav class: 'navbar-right' do %>
-          <% if current_user %>
+      <% if current_user %>
+        <%= horizontal do %>
+          <%= nav class: 'navbar-left' do %>
             <%= link_to 'Dashboard', dashboard_path %>
             <%= link_to 'Doctors', doctors_path %>
             <%= link_to 'Claimants', claimants_path %>
@@ -25,14 +27,19 @@
             <%= link_to 'Claims', claims_path %>
             <%= link_to 'Appointments', appointments_path %>
             <%= link_to "Documents", documents_path %>
-          <% else %>
-            <%= link_to "Home", root_path %>
-            <%= link_to "Sign In", new_user_session_path %>
+          <% end %>
+          <%= nav class: 'navbar-right' do %>
+            <%= link_to "Hello, #{current_user.first_name}", "#" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           <% end %>
         <% end %>
+      <% else %>
+        <%= nav class: 'navbar-right' do %>
+          <%= link_to "Home", root_path %>
+          <%= link_to "Sign In", new_user_session_path %>
+        <% end %>     
       <% end %>
     <% end %>
-    <div class="container">
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
