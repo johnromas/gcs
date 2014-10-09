@@ -1,18 +1,17 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-/*@import "sb-admin.min.css";*/
-@import "rails_bootstrap_forms";
-@import "bootstrap.min.css";
-@import "bootstrap-switch.min.css";
-@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require rails_bootstrap_forms
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require bootstrap.min.css
+ *= require main
 
-.modal-content form {
-	padding: 20px;
-}
-.modal-content .actions {
-	margin-bottom: 40px;
-}
-
-.panel-body {
-	padding: 0px 0px 0px 15px; 
-}
+ */
