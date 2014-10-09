@@ -21,7 +21,7 @@
       <td><%= doctor.city %></td>
       <td><%= doctor.state.try(:name) %></td>
       <td><%= doctor.zip %></td>
-      <td><%= doctor.phone %></td>
+      <td><%= number_to_phone(doctor.phone) %></td>
       <td><%= doctor.mobile %></td>
       <td>
         <%= link_to 'Edit', edit_doctor_path(doctor) %> |
