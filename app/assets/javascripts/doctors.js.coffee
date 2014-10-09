@@ -4,6 +4,7 @@
 
 ready = ->
   $('#doctors-index').dataTable()
+  $('.dataTables_length').addClass("hidden-xs")
   $('.phone-input').inputmask({ mask: ["999-999-9999 [x99999]", "+099 99 99 9999[9]-9999"], showTooltip: true })
   $('.ssn-input').inputmask({ mask: ["999-99-9999"], showTooltip: true })
 
