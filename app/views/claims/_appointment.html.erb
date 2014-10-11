@@ -2,12 +2,10 @@
   <div class='panel-heading'><h4 class="panel-title">Appointment</h4></div>
   <div class='panel-body'>
     <div class="row">
-      <%= referral_label(["Appointment Date:", "Time:"]) %>
-      <%= referral_value([@appointment.try(:date).strftime("%D"), @appointment.try(:time).strftime("%r")], "2")  %>
-      <%= referral_label(["Physician:", "LOS:"]) %>
-      <%= referral_value([@doctor.full_name, @doctor.city], "2") %>
-      <%= referral_label(["Claim #:", "Phone:"]) %>
-      <%= referral_value([@claim.number, @doctor.phone], "2") %>
+      <div class="col-md-4">
+        <p class="pull-right"><strong>Appointment Date:</strong></p>
+      </div>
     </div>
   </div>
 <% end %>
+

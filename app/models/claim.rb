@@ -10,6 +10,7 @@ class Claim < ActiveRecord::Base
   accepts_nested_attributes_for :claimant
   
   validates_presence_of :number, :adjustor_id
+  validates_associated :appointment, :claimant
 
 
 end
