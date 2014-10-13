@@ -1,5 +1,5 @@
 class ClaimsController < ApplicationController
-  before_action :set_claim, only: [:show, :edit, :update, :destroy]
+  before_action :set_claim, only: [:show, :edit, :update, :destroy, :deliver]
   before_action :check_params, only: [:create, :update]
   # GET /claims
   # GET /claims.json
@@ -36,7 +36,7 @@ class ClaimsController < ApplicationController
   def create
     @claim = Claim.new(claim_params)
 
-    binding.pry
+    # binding.pry
     respond_to do |format|
       if @claim.save
         format.html { redirect_to claims_path, notice: 'Claim was successfully created.' }
@@ -70,6 +70,13 @@ class ClaimsController < ApplicationController
       format.html { redirect_to claims_url }
       format.json { head :no_content }
     end
+  end
+
+  def deliver
+    @user = current_user
+    ClaimMailer.cite_letter(@claim, @user).deliver
+    # binding.pry
+    redirect_to @claim, notice: "Cite Letter Emailed Successfully!"
   end
 
   private

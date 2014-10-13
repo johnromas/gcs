@@ -9,7 +9,9 @@ Gcs::Application.routes.draw do
 
   resources :appointments
 
-  resources :claims
+  resources :claims do
+    post :deliver, on: :member
+  end
 
   resources :adjustors
 
