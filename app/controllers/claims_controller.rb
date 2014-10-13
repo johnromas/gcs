@@ -22,7 +22,7 @@ class ClaimsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = CiteLetterPdf.new(@claim, view_context)
+        pdf = CiteLetterPdf.new(@claim)
         send_data pdf.render, filename: "Claim_#{@claim.number}.pdf",
                               type: "application/pdf",
                               disposition: "inline"

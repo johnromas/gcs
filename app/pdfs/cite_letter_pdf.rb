@@ -1,8 +1,7 @@
 class CiteLetterPdf < Prawn::Document
-	def initialize(claim, view)
+	def initialize(claim)
     super(top_margin: 70)
     @claim = claim
-    @view = view
     header
     intro
     appointment_info
