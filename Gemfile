@@ -23,15 +23,13 @@ gem 'pry'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'prawn'
+
 gem 'figaro', '1.0'
 
 gem 'jquery-inputmask-rails'
 
-gem 'pdfkit'
-
 gem 'newrelic_rpm'
-
-gem 'wkhtmltopdf-binary'
 
 gem 'devise'
 

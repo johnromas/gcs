@@ -10,3 +10,5 @@
 
 <%= button_to "Send Cite Letter", deliver_claim_path(@claim) %>
 
+<p><%= link_to "Printable Cite Letter (PDF)", claim_path(@claim, format: "pdf"), class: "btn btn-success" %></p>
+

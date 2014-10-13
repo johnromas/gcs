@@ -18,6 +18,16 @@ class ClaimsController < ApplicationController
     @doctor = @appointment.doctor if @appointment.present?
     @adjustor = @claim.adjustor
     @insurance_company = @claim.insurance_company
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = CiteLetterPdf.new(@claim, view_context)
+        send_data pdf.render, filename: "Claim_#{@claim.number}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /claims/new
