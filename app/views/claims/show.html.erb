@@ -8,7 +8,7 @@
 
 <%= render "notes" %>
 
-<%= button_to "Send Cite Letter", deliver_claim_path(@claim) %>
+<%= button_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary pull-right" %>
 
-<p><%= link_to "Printable Cite Letter (PDF)", claim_path(@claim, format: "pdf"), class: "btn btn-success" %></p>
+<%= link_to "Preview Cite Letter", claim_path(@claim, format: "pdf"), class: "btn btn-success" %>
 
