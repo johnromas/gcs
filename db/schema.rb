@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008231015) do
+ActiveRecord::Schema.define(version: 20141019202207) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20141008231015) do
     t.string   "case"
     t.date     "date_of_injury"
     t.text     "notes"
+    t.text     "cite_letter_message"
   end
 
   add_index "claims", ["adjustor_id"], name: "index_claims_on_adjustor_id"
