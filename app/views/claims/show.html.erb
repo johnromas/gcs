@@ -8,7 +8,7 @@
 
 <%= render "notes" %>
 
-<%= button_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary pull-right" %>
+<%= button_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary pull-right", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
 
 <%#= link_to "Preview Cite Letter", claim_path(@claim, format: "pdf"), class: "btn btn-success" %>
 
