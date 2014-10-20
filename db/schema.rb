@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019202207) do
+ActiveRecord::Schema.define(version: 20141020153304) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -132,6 +132,13 @@ ActiveRecord::Schema.define(version: 20141019202207) do
   end
 
   add_index "doctors", ["state_id"], name: "index_doctors_on_state_id"
+
+  create_table "documents", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_name"
+  end
 
   create_table "insurance_companies", force: true do |t|
     t.string   "name"

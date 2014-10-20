@@ -41,11 +41,11 @@
   <%= panel tag: :aside do %>
     <div class='panel-heading'><h4>Fees</h4></div>
     <div class='panel-body'>
-      <%= f.number_field :ime_charge, label: "IME Fee" %>
-      <%= f.number_field :no_show_fee, label: "No Show Fee" %>
-      <%= f.number_field :deposition_fee, label: "Deposition Fee" %>
-      <%= f.number_field :deposition_cancel_fee, label: "Deposition Cancellation Fee" %>
-      <%= f.number_field :record_review_fee, label: "Record Review Fee" %>
+      <%= f.number_field :ime_charge, label: "IME Fee", step: 0.01 %>
+      <%= f.number_field :no_show_fee, label: "No Show Fee", step: 0.01 %>
+      <%= f.number_field :deposition_fee, label: "Deposition Fee", step: 0.01 %>
+      <%= f.number_field :deposition_cancel_fee, label: "Deposition Cancellation Fee", step: 0.01 %>
+      <%= f.number_field :record_review_fee, label: "Record Review Fee", step: 0.01 %>
     </div>
   <% end %>
   <%= panel tag: :aside do %>

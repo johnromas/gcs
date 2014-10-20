@@ -1,1 +1,11 @@
-<h1 class="page-header">Documents</h1>
+<h1>Uploaded Documents</h1>
+
+<% @documents.each do |document| %>
+  <h3><%= link_to document.name, document.file_name.url %></h3>
+  <span><%= link_to 'Edit', edit_document_path(document) %></span>
+  <%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
+<br>
+<%= link_to 'New Document', new_document_path, class: "btn btn-primary" %>

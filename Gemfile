@@ -49,6 +49,10 @@ gem 'bh', '~> 1.1'
 
 gem 'bootstrap_form'
 
+gem 'carrierwave'
+
+gem 'fog'
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
