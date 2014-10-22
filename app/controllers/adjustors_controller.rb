@@ -70,6 +70,6 @@ class AdjustorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adjustor_params
-      params.require(:adjustor).permit(:insurance_company_id, :first_name, :last_name, :phone, :mobile, :notes)
+      params.require(:adjustor).permit(:insurance_company_id, :first_name, :last_name, :email, :phone, :mobile, :notes)
     end
 end
