@@ -3,10 +3,16 @@ class CiteLetterPdf < Prawn::Document
     super(top_margin: 70)
     @claim = claim
     @message = message
+    logo
     header
     intro
     appointment_info
     body
+  end
+  
+  def logo
+    image "#{Rails.root}/app/assets/images/gcs_logo.jpg", :position => :left, :width => 300, :scale => 0.5
+    move_down 30
   end
   
   def header

@@ -1,34 +1,24 @@
-<p id="notice"><%= notice %></p>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+  <li><a href="#claims" role="tab" data-toggle="tab">Claims</a></li>
+</ul>
 
-<p>
-  <strong>Insurance company:</strong>
-  <%= @adjustor.insurance_company.try(:name) %>
-</p>
+<!-- Tab panes -->
+<div class="well">
+  <div class="tab-content">
+    <div class="tab-pane active" id="general">
+      <%= adjuster_row("First Name:", @adjustor.first_name) %>
+      <%= adjuster_row("Last Name:", @adjustor.last_name) %>
+      <%= adjuster_row("Phone:", @adjustor.phone) %>
+      <%= adjuster_row("Mobile:", @adjustor.mobile) %>
+      <%= adjuster_row("Notes:", @adjustor.notes) %>
+    </div>
+    <div class="tab-pane" id="claims">
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @adjustor.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @adjustor.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @adjustor.phone %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @adjustor.mobile %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @adjustor.notes %>
-</p>
 
 <%= link_to 'Edit', edit_adjustor_path(@adjustor) %> |
 <%= link_to 'Back', adjustors_path %>

@@ -1,34 +1,24 @@
-<p id="notice"><%= notice %></p>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+  <li><a href="#adjusters" role="tab" data-toggle="tab">Adjusters</a></li>
+</ul>
 
-<p>
-  <strong>Name:</strong>
-  <%= @insurance_company.name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @insurance_company.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @insurance_company.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @insurance_company.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @insurance_company.state.try(:name) %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @insurance_company.zip %>
-</p>
+<!-- Tab panes -->
+<div class="well">
+  <div class="tab-content">
+    <div class="tab-pane active" id="general">
+      <%= insurance_row("First Name:", @insurance_company.name) %>
+      <%= insurance_row("Address:", @insurance_company.address) %>
+      <%= insurance_row("City:", @insurance_company.city) %>
+      <%= insurance_row("State:", @insurance_company.state.abbr) %>
+      <%= insurance_row("Zip:", @insurance_company.zip) %>
+      <%= insurance_row("Phone:", @insurance_company.phone) %>
+    </div>
+    <div class="tab-pane" id="adjusters">
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_insurance_company_path(@insurance_company) %> |
 <%= link_to 'Back', insurance_companies_path %>

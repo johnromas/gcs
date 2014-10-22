@@ -1,103 +1,52 @@
-<%= panel_row column_class: 'col-sm-4' do %>
-  <%= panel title: 'General Info', context: :info do %>
-    <p class="panel-body">
-      <strong>First name:</strong>
-        <%= @doctor.first_name %>
-    </p>
-    <p class="panel-body">
-      <strong>Last name:</strong>
-      <%= @doctor.last_name %>
-    </p>
-    <p class="panel-body">
-      <strong>Address:</strong>
-      <%= @doctor.address %>
-    </p>
-    <p class="panel-body">
-      <strong>City:</strong>
-      <%= @doctor.city %>
-    </p>
-    <p class="panel-body">
-      <strong>State:</strong>
-      <%= @doctor.state.try(:name) %>
-    </p>
-    <p class="panel-body">
-      <strong>Zip:</strong>
-      <%= @doctor.zip %>
-    </p>
-    <p class="panel-body">
-      <strong>Phone:</strong>
-      <%= @doctor.phone %>
-    </p>
-    <p class="panel-body">
-      <strong>Mobile:</strong>
-      <%= @doctor.mobile %>
-    </p>
-    <p class="panel-body">
-      <strong>Fax:</strong>
-      <%= @doctor.fax %>
-    </p>
-    <p class="panel-body">
-      <strong>Email:</strong>
-      <%= @doctor.email %>
-    </p>
-    <p class="panel-body">
-      <strong>Notes:</strong>
-      <%= @doctor.notes %>
-    </p>
-  <% end %>
-  <%= panel title: 'Practice Info', context: :info do %>
-    <p class="panel-body">
-      <strong>Credentials:</strong>
-        <%= @doctor.credentials %>
-    </p>
-    <p class="panel-body">
-      <strong>Active Practice:</strong>
-      <%= @doctor.active_practice %>
-    </p>
-    <p class="panel-body">
-      <strong>Board Certified:</strong>
-      <%= @doctor.board_certified %>
-    </p>
-    <p class="panel-body">
-      <strong>Tax ID:</strong>
-      <%= @doctor.tax_id %>
-    </p>
-    <p class="panel-body">
-      <strong>License #:</strong>
-      <%= @doctor.license_number %>
-    </p>
-    <p class="panel-body">
-      <strong>Approx. Turn Around:</strong>
-      <%= @doctor.approx_turn_around %>
-    </p>
-    <p class="panel-body">
-      <strong>Dictation Service Interest:</strong>
-      <%= @doctor.dictation_service_interest %>
-    </p>
-  <% end %>
-  <%= panel title: 'Fees', context: :info do %>
-    <p class="panel-body">
-      <strong>IME Fee:</strong>
-      <%= number_to_currency(@doctor.ime_charge) %>
-    </p>
-    <p class="panel-body">
-      <strong>No Show Charge:</strong>
-      <%= number_to_currency(@doctor.no_show_fee) %>
-    </p>
-    <p class="panel-body">
-      <strong>Deposition Fee:</strong>
-      <%= number_to_currency(@doctor.deposition_fee) %>
-    </p>
-    <p class="panel-body">
-      <strong>Deposition Cancellation Fee:</strong>
-      <%= number_to_currency(@doctor.deposition_cancel_fee) %>
-    </p>
-    <p class="panel-body">
-      <strong>Record Review Fee:</strong>
-      <%= number_to_currency(@doctor.record_review_fee) %>
-    </p>
-  <% end %>
-<% end %>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+  <li><a href="#practice" role="tab" data-toggle="tab">Practice</a></li>
+  <li><a href="#fees" role="tab" data-toggle="tab">Fees</a></li>
+  <li><a href="#poc" role="tab" data-toggle="tab">Point of Contact</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="well">
+  <div class="tab-content">
+    <div class="tab-pane active" id="general">
+      <%= doctor_row("First Name:", @doctor.first_name) %>
+      <%= doctor_row("Last Name:", @doctor.last_name) %>
+      <%= doctor_row("Address:", @doctor.address) %>
+      <%= doctor_row("City:", @doctor.city) %>
+      <%= doctor_row("State:", @doctor.state.abbr) %>
+      <%= doctor_row("Zip:", @doctor.zip) %>
+      <%= doctor_row("Phone:", @doctor.phone) %>
+      <%= doctor_row("Mobile:", @doctor.mobile) %>
+      <%= doctor_row("Fax:", @doctor.fax) %>
+      <%= doctor_row("Email:", @doctor.email) %>
+      <%= doctor_row("Notes:", @doctor.notes) %>
+    </div>
+    <div class="tab-pane" id="practice">
+      <%= doctor_row("Credentials:", @doctor.credentials) %>
+      <%= doctor_row("Active Practice:", @doctor.active_practice) %>
+      <%= doctor_row("Board Certified:", @doctor.board_certified) %>
+      <%= doctor_row("Tax Id:", @doctor.tax_id) %>
+      <%= doctor_row("License #:", @doctor.license_number) %>
+      <%= doctor_row("Approx. Turn Around:", @doctor.approx_turn_around) %>
+      <%= doctor_row("Dictation Service Interest:", @doctor.dictation_service_interest) %>
+    </div>
+    <div class="tab-pane" id="fees">
+      <%= doctor_row("IME Fee:", number_to_currency(@doctor.ime_charge)) %>
+      <%= doctor_row("No Show Fee:", number_to_currency(@doctor.no_show_fee)) %>
+      <%= doctor_row("Deposition Fee:", number_to_currency(@doctor.deposition_fee)) %>
+      <%= doctor_row("Deposition Cancellation Fee:", number_to_currency(@doctor.deposition_cancel_fee)) %>
+      <%= doctor_row("Record Review Fee:", number_to_currency(@doctor.record_review_fee)) %>
+    </div>
+    <div class="tab-pane" id="poc">
+      <%= doctor_row("First Name", @doctor.poc_first_name) %>
+      <%= doctor_row("Last Name", @doctor.poc_last_name) %>
+      <%= doctor_row("Phone", @doctor.poc_phone) %>
+      <%= doctor_row("Email", @doctor.poc_email) %>
+    </div>
+  </div>
+</div>
+
 
 <%= render 'appointments/table' %>
 
