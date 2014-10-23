@@ -4,11 +4,35 @@
 <%= @claim.claimant.address %><br>
 <%= @claim.claimant.city %>, <%= @claim.claimant.state.abbr %> <%= @claim.claimant.zip %><br>
  
-<p>Please do not send documents to my personal email address.</p>
+<p><%= @claim.adjustor.full_name %>,</p>
+
+<p>Attached you will find a copy of the cite letter. Please advise me of any incorrect information.</p>
  
-<p>Attached you will find a copy of the cite letter.
-Please advise me of any incorrect information.</p>
- 
- 
-<p>Please send medical records and cover letter to our Southfield address below. Documents can also be emailed to:scheduling@globalclaimssolutionsllc.com or faxed to ---.  Please do not send documents to my personal email address.</p>
-<p>Because we have many physicians with different policies regarding medical records, we ask that you send your medical records to us as soon as possible.  We thank you for your cooperation and understanding.</p>
+<p>Records due ASAP.</p>
+
+<p>Please send medical records and cover letter to our Bay City address below.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.</p>
+
+<p>Because we have many physicians with different policies regarding medical records, we ask that you send your medical records to us as soon as possible. We thank you for your cooperation and understanding.</p>
+
+<p>
+	Bay City Address:</br>
+	1000 Washington Ave.</br>
+	P.O. Box 603</br>
+	Bay City, MI 48707</br>
+</p>
+
+<p>Thank you,</p>
+
+
+<%= image_tag("http://localhost:3000/assets/gcs_signature.jpg") %>
+
+<p>
+	Global Claims Solutions LLC</br>
+	John E. Romas</br>
+	29877 Telegraph Rd.</br>
+	Suite 250</br>
+	Southfield, MI 48034</br>
+	248-355-2220</br>
+	248-866-9841 - Cell</br>
+	jromas@globalclaimssolutionsllc.com</br>
+</p>

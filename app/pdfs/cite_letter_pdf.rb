@@ -68,6 +68,7 @@ class CiteLetterPdf < Prawn::Document
 		move_down 20
 		text "Sincerely,"
 		text "Global Claims Solutions LLC"
+
   end
   
 end

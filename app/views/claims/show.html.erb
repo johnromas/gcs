@@ -8,11 +8,6 @@
 
 <%= render "notes" %>
 
-<%= button_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary pull-right", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
-
-
-<%#= link_to "Preview Cite Letter", claim_path(@claim, format: "pdf"), class: "btn btn-success" %>
-
 <%= modal title: 'Preview Site Letter', button: {size: :medium, context: :info} do %>
   <div class="modal-body">
   	<p class="lead">Do you want to include a custom message in the cite letter?</p>
@@ -22,6 +17,10 @@
   </div>
 <% end %>
 
+<%= link_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
+
+<h3 class="page-header">Invoices</h3>
+<br>
 <table class="table">
 	<thead>
 		<tr>
