@@ -13,6 +13,15 @@ class Claims::BillingsController < ApplicationController
   def show
     @line_items = @billing.line_items
     @line_item = @billing.line_items.build
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = InvoicePdf.new(@claim, @billing)
+        send_data pdf.render, filename: "Invoice_#{@billing.invoice_nbr}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /billings/new

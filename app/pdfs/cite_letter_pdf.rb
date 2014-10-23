@@ -56,7 +56,7 @@ class CiteLetterPdf < Prawn::Document
     end
   	text "This evaluation involves a detailed review of your history, medical records, x-rays, and the performance of a physical examiniation. Please bring with you any medical records and any x-ray films pertaining to your injury/illness. You can obtain x-ray films at the facilities where they were performed. (Please bring phone numbers/addresses of any providers you have seen regarding this injury.)"
   	move_down 20
-  	data = [ ["1.", "PLEASE CALL THE SOUTHFIELD SCHEDULING OFFICE *ADD PHONE HERE* UPON RECEIPT OF THIS LETTER TO CONFIRM THAT YOU WILL BE ATTENDING THIS APPOINTMENT AND/OR FOR DIRECTIONS."],
+  	data = [ ["1.", "PLEASE CALL THE SOUTHFIELD SCHEDULING OFFICE (248)-355-2220 UPON RECEIPT OF THIS LETTER TO CONFIRM THAT YOU WILL BE ATTENDING THIS APPOINTMENT AND/OR FOR DIRECTIONS."],
 					 ["2.", "IF THERE IS A CONFLICT, with the date/or time of your appointment, please contact #{@claim.adjustor.full_name} at #{@claim.adjustor.phone}."] ]
 		table(data, :position => 15) do
 			cells.borders = []
