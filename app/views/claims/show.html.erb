@@ -17,10 +17,9 @@
   </div>
 <% end %>
 
-<%= link_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
+<%= link_to "Send Cite Letter", deliver_claim_path(@claim), method: :post, class: "btn btn-primary", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
 
 <h3 class="page-header">Invoices</h3>
-<br>
 <table class="table">
 	<thead>
 		<tr>
