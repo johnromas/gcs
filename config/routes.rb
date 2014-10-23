@@ -1,4 +1,5 @@
 Gcs::Application.routes.draw do
+
   devise_for :users
 
   get "dashboard" => "dashboard#index", as: "dashboard"
@@ -11,6 +12,9 @@ Gcs::Application.routes.draw do
 
   resources :claims do
     post :deliver, on: :member
+    resources :billings, controller: 'claims/billings' do 
+      resources :line_items
+    end
   end
 
   resources :adjustors

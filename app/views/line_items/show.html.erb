@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Billing:</strong>
+  <%= @line_item.billing %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @line_item.quantity %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @line_item.date %>
+</p>
+
+<p>
+  <strong>Cpt code:</strong>
+  <%= @line_item.cpt_code %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @line_item.description %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @line_item.unit_price %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @line_item.total %>
+</p>
+
+<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>

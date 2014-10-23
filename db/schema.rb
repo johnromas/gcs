@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020153304) do
+ActiveRecord::Schema.define(version: 20141022203051) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -54,6 +54,25 @@ ActiveRecord::Schema.define(version: 20141020153304) do
   end
 
   add_index "attorneys", ["state_id"], name: "index_attorneys_on_state_id"
+
+  create_table "billings", force: true do |t|
+    t.integer  "claim_id"
+    t.string   "invoice_nbr"
+    t.date     "invoice_date"
+    t.integer  "insurance_company_id"
+    t.integer  "attorney_id"
+    t.integer  "claimant_id"
+    t.decimal  "subtotal"
+    t.decimal  "total"
+    t.decimal  "paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "billings", ["attorney_id"], name: "index_billings_on_attorney_id"
+  add_index "billings", ["claim_id"], name: "index_billings_on_claim_id"
+  add_index "billings", ["claimant_id"], name: "index_billings_on_claimant_id"
+  add_index "billings", ["insurance_company_id"], name: "index_billings_on_insurance_company_id"
 
   create_table "claimants", force: true do |t|
     t.string   "first_name"
@@ -152,6 +171,20 @@ ActiveRecord::Schema.define(version: 20141020153304) do
   end
 
   add_index "insurance_companies", ["state_id"], name: "index_insurance_companies_on_state_id"
+
+  create_table "line_items", force: true do |t|
+    t.integer  "billing_id"
+    t.decimal  "quantity"
+    t.date     "date"
+    t.string   "cpt_code"
+    t.text     "description"
+    t.decimal  "unit_price"
+    t.decimal  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["billing_id"], name: "index_line_items_on_billing_id"
 
   create_table "states", force: true do |t|
     t.string   "name"

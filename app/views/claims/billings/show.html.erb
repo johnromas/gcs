@@ -1,0 +1,62 @@
+<table id="line_items_table" class="table">
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Date</th>
+      <th>CPT Code</th>
+      <th>Description</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr id="line_item_<%= line_item.id %>">
+        <td><%= line_item.quantity %></td>
+        <td><%= line_item.date %></td>
+        <td><%= line_item.cpt_code %></td>
+        <td><%= simple_format(line_item.description) %></td>
+        <td><%= line_item.unit_price %></td>
+        <td class="line_item_total"><%= line_item.total %></td>
+        <td><%= link_to "Delete", line_item_url_helper(line_item), method: :delete, :class => 'btn btn-mini btn-danger', remote: true, confirm: "Are you sure you want to delete this line item?"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Sum</td>
+      <td>$180</td>
+    </tr>
+  </tfoot>
+</table>
+
+<%= modal title: 'Add Line Item', button: {size: :medium, context: :info} do %>
+  <div class="modal-body">
+    <%= bootstrap_form_for [@claim, @billing, @line_item], remote: true do |f| %>
+      <% if @line_item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
+
+          <ul>
+          <% @line_item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+        <%= f.text_field :quantity %>
+        <%= f.date_field :date %>
+        <%= f.text_field :cpt_code %>
+        <%= f.text_area :description %>
+        <%= f.text_field :unit_price %>
+        <%= f.text_field :total %>
+  </div>
+  <div class="modal-footer"><%= f.submit %></div>
+    <% end %>
+<% end %>
+<br>
+
+<%= link_to 'Edit', edit_claim_billing_path(@claim, @billing) %> |
+<%= link_to 'Back', claim_billings_path %>

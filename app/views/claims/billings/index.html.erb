@@ -1,0 +1,43 @@
+<h1>Listing billings</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Claim</th>
+      <th>Invoice #</th>
+      <th>Invoice Date</th>
+      <th>Insurance Company</th>
+      <th>Attorney</th>
+      <th>Claimant</th>
+      <th>Subtotal</th>
+      <th>Total</th>
+      <th>Paid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @billings.each do |billing| %>
+      <tr>
+        <td><%= link_to billing.claim.number, billing_path(billing) %></td>
+        <td><%= billing.invoice_nbr %></td>
+        <td><%= billing.invoice_date %></td>
+        <td><%= billing.insurance_company.name %></td>
+        <td><%= billing.attorney.try(:full_name) %></td>
+        <td><%= billing.claimant.full_name %></td>
+        <td><%= billing.subtotal %></td>
+        <td><%= billing.total %></td>
+        <td><%= billing.paid %></td>
+        <td><%= link_to 'Show', billing %></td>
+        <td><%= link_to 'Edit', edit_billing_path(billing) %></td>
+        <td><%= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Billing', new_billing_path %>

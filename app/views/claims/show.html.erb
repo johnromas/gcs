@@ -10,6 +10,7 @@
 
 <%= button_to "Send Cite Letter", deliver_claim_path(@claim), class: "btn btn-primary pull-right", data: { confirm: "Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
 
+
 <%#= link_to "Preview Cite Letter", claim_path(@claim, format: "pdf"), class: "btn btn-success" %>
 
 <%= modal title: 'Preview Site Letter', button: {size: :medium, context: :info} do %>
@@ -20,4 +21,29 @@
   	<%= submit_tag "Show PDF", class: "btn btn-primary"  %>
   </div>
 <% end %>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Invoice #</th>
+			<th>Invoice Date</th>
+			<th>Claim #</th>
+			<th>Total</th>
+			<th>Paid</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @claim.billings.each do |billing| %>
+			<tr>
+				<td><%= link_to billing.invoice_nbr, [@claim, billing] %></td>
+				<td><%= billing.invoice_date %></td>
+				<td><%= billing.claim.number %></td>
+				<td><%= billing.total %></td>
+				<td><%= billing.paid %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Create Invoice", new_claim_billing_path(@claim), class: "btn btn-success" %>
 
