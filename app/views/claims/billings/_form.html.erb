@@ -18,13 +18,13 @@
     <%= f.date_field :invoice_date %>
   </div>
   <div class="field">
-    <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company', :selected => @billing.claim.insurance_company.id}) %>
+    <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company', :selected => @billing.claim.insurance_company.try(:id) }) %>
   </div>
   <div class="field">
-        <%= f.collection_select(:attorney_id, Attorney.all, :id, :full_name, {prompt: 'Select Attorney', :selected => @billing.claim.attorney.id}) %>
+        <%= f.collection_select(:attorney_id, Attorney.all, :id, :full_name, {prompt: 'Select Attorney', :selected => @billing.claim.attorney.try(:id)}) %>
   </div>
   <div class="field">
-    <%= f.collection_select(:claimant_id, Claimant.all, :id, :full_name, {prompt: 'Select Claimant', :selected => @billing.claim.claimant.id}) %>
+    <%= f.collection_select(:claimant_id, Claimant.all, :id, :full_name, {prompt: 'Select Claimant', :selected => @billing.claim.claimant.try(:id)}) %>
   </div>
   <div class="field">
     <%= f.number_field :subtotal, step: 0.01 %>
