@@ -1,38 +1,133 @@
-<p><%= Date.today.strftime("%B %d, %Y") %><p>
-
-<%= @claim.claimant.full_name %><br>
-<%= @claim.claimant.address %><br>
-<%= @claim.claimant.city %>, <%= @claim.claimant.state.abbr %> <%= @claim.claimant.zip %><br>
- 
-<p><%= @claim.adjustor.full_name %>,</p>
-
-<p>Attached you will find a copy of the cite letter. Please advise me of any incorrect information.</p>
- 
-<p>Records due ASAP.</p>
-
-<p>Please send medical records and cover letter to our Bay City address below.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.</p>
-
-<p>Because we have many physicians with different policies regarding medical records, we ask that you send your medical records to us as soon as possible. We thank you for your cooperation and understanding.</p>
-
-<p>
-	Bay City Address:</br>
-	1000 Washington Ave.</br>
-	P.O. Box 603</br>
-	Bay City, MI 48707</br>
-</p>
-
-<p>Thank you,</p>
-
-
-<%= image_tag("http://localhost:3000/assets/gcs_signature.jpg") %>
-
-<p>
-	Global Claims Solutions LLC</br>
-	John E. Romas</br>
-	29877 Telegraph Rd.</br>
-	Suite 250</br>
-	Southfield, MI 48034</br>
-	248-355-2220</br>
-	248-866-9841 - Cell</br>
-	jromas@globalclaimssolutionsllc.com</br>
-</p>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Cite Letter</title>
+  <style type="text/css">
+  body, td { color:#000000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+  .divider { background-color:#555555; height:2px; }
+  .address { margin-top:0; padding-top:30px; }
+  .episode p { margin:8px 0; }
+  .episode img { border:solid 1px #777777; }
+  .episode .duration { font-size:11px;color:#555555; }
+  #footer { font-size:11px; color:#555555; }
+  #footer a { color:#555555;}
+  </style>
+</head>
+<body style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+	<table body="100%">
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				<%= Date.today.strftime("%B %d, %Y") %>
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				<%= @claim.claimant.full_name %>
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				<%= @claim.claimant.address %>
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				<%= @claim.claimant.city %>, <%= @claim.claimant.state.abbr %> <%= @claim.claimant.zip %>
+	 		</td>
+	 	</tr>
+	 	<tr>
+	 		<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				<%= @claim.adjustor.full_name %>,
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Attached you will find a copy of the cite letter. Please advise me of any incorrect information.
+	 		</td>
+	 	</tr>
+	 	<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Records due ASAP.
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Please send medical records and cover letter to our Bay City address below.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Because we have many physicians with different policies regarding medical records, we ask that you send your medical records to us as soon as possible. We thank you for your cooperation and understanding.
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Bay City Address:
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				1000 Washington Ave.
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				P.O. Box 603
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				Bay City, MI 48707
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				Thank you,
+			</td>
+		</tr>
+		<tr>
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+				<img src= "http://localhost:3000/assets/gcs_signature.jpg">
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				Global Claims Solutions LLC
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				John E. Romas
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				29877 Telegraph Rd.
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				Suite 250
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				Southfield, MI 48034
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				248-355-2220
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				248-866-9841 - Cell
+			</td>
+		</tr>
+		<tr>
+			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+				jromas@globalclaimssolutionsllc.com
+			</td>
+		</tr>
+	</table>
+</body>
