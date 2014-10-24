@@ -4,10 +4,10 @@
 
 ready = ->
   $("#line_item_").hide()
-  $(".line_item_total").html("1")
 
-  unless $("#line_items_table").children("tbody").length > 1
+  unless $("#line_items_table").children("tbody").children().length > 1
   	$("#line_items_table").children("tfoot").hide()
+  $("#invoice_total_value").html($("#invoice_total_value").data("invoiceTotal"))
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
