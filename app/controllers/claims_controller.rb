@@ -18,14 +18,12 @@ class ClaimsController < ApplicationController
     @doctor = @appointment.doctor if @appointment.present?
     @adjustor = @claim.adjustor
     @insurance_company = @claim.insurance_company
-    @message = params[:message]
     # binding.pry
 
     respond_to do |format|
       format.html
       format.pdf do
-        @claim.update_attributes(cite_letter_message: @message)
-        pdf = CiteLetterPdf.new(@claim, @message)
+        pdf = CiteLetterPdf.new(@claim)
         send_data pdf.render, filename: "Claim_#{@claim.number}.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -87,7 +85,9 @@ class ClaimsController < ApplicationController
 
   def deliver
     @user = current_user
+    @claim.update_attributes(cite_letter_message: params[:message])
     @message = @claim.cite_letter_message
+
     ClaimMailer.cite_letter(@claim, @user, @message).deliver
     # binding.pry
     redirect_to @claim, notice: "Cite Letter Emailed Successfully!"

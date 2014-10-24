@@ -40,53 +40,60 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
 				Attached you will find a copy of the cite letter. Please advise me of any incorrect information.
 	 		</td>
 	 	</tr>
+	 	<% if @message.present? %>
+		 	<tr>
+		 		<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
+		 			<%= simple_format(@message) %>
+		 		</td>
+		 	</tr>
+		 <% end %>
 	 	<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+			<td class="address" style="color: #e01f30;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
 				Records due ASAP.
 			</td>
 		</tr>
 		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
-				Please send medical records and cover letter to our Bay City address below.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
+				Please send medical records and cover letter to our <span style="color: #e01f30">Bay City address below</span>.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.
 			</td>
 		</tr>
 		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
 				Because we have many physicians with different policies regarding medical records, we ask that you send your medical records to us as soon as possible. We thank you for your cooperation and understanding.
 			</td>
 		</tr>
 		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+			<td class="address" style="color: #e01f30;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
 				Bay City Address:
 			</td>
 		</tr>
 		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+			<td style="color: #e01f30;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
 				1000 Washington Ave.
 			</td>
 		</tr>
 		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+			<td style="color: #e01f30;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
 				P.O. Box 603
 			</td>
 		</tr>
 		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+			<td style="color: #e01f30;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
 				Bay City, MI 48707
 			</td>
 		</tr>
 		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
+			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
 				Thank you,
 			</td>
 		</tr>
 		<tr>
 			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
-				<img src= "http://localhost:3000/assets/gcs_signature.jpg">
+				<img src= "http://localhost:3000/assets/gcs_signature.jpg" alt="GCS Logo">
 			</td>
 		</tr>
 		<tr>

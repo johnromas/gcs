@@ -1,8 +1,7 @@
 class CiteLetterPdf < Prawn::Document
-	def initialize(claim, message)
+	def initialize(claim)
     super(top_margin: 70)
     @claim = claim
-    @message = message
     logo
     header
     intro
@@ -50,10 +49,6 @@ class CiteLetterPdf < Prawn::Document
 
   def body
   	move_down 20
-    if @message.present?
-      text @message
-      move_down 20
-    end
   	text "This evaluation involves a detailed review of your history, medical records, x-rays, and the performance of a physical examiniation. Please bring with you any medical records and any x-ray films pertaining to your injury/illness. You can obtain x-ray films at the facilities where they were performed. (Please bring phone numbers/addresses of any providers you have seen regarding this injury.)"
   	move_down 20
   	data = [ ["1.", "PLEASE CALL THE SOUTHFIELD SCHEDULING OFFICE (248)-355-2220 UPON RECEIPT OF THIS LETTER TO CONFIRM THAT YOU WILL BE ATTENDING THIS APPOINTMENT AND/OR FOR DIRECTIONS."],

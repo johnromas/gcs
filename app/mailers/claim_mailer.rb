@@ -11,8 +11,8 @@ class ClaimMailer < ActionMailer::Base
     @recipient = @claim.adjustor.email
     @message = message
     filename = "claim_#{@claim.number}.pdf"
-    attachments[filename] = CiteLetterPdf.new(@claim, @message).render
+    attachments[filename] = CiteLetterPdf.new(@claim).render
 
-    mail to: @recipient, from: "#{@user.full_name} <#{@user.email}>", bcc: @user.email
+    mail to: "john.romas87@gmail.com", from: "#{@user.full_name} <#{@user.email}>", bcc: @user.email
   end
 end

@@ -8,16 +8,16 @@
 
 <%= render "notes" %>
 
-<%= modal title: 'Preview Site Letter', button: {size: :medium} do %>
+<%= link_to "Preview Site Letter", claim_path(@claim, format: "pdf"), method: "get", class: "btn btn-default" %>
+
+<%= modal title: 'Send Cite Letter', button: {size: :medium, context: :danger} do %>
   <div class="modal-body">
-  	<p class="lead">Do you want to include a custom message in the cite letter?</p>
-  	<%= form_tag(claim_path(@claim, format: "pdf"), method: "get")%>
+  	<p class="lead">Do you want to include a custom message in the cite letter email?</p>
+  	<%= form_tag(deliver_claim_path(@claim), method: :post)%>
   	<%= text_area_tag :message, @claim.cite_letter_message, rows: 8, class: "form-control", placeholder: "Type your custom message here" %>
-  	<%= submit_tag "Show PDF", class: "btn btn-primary"  %>
+  	<%= submit_tag "Send Cite Letter", class: "btn btn-primary", data: { confirm: "This email will be sent to #{ @claim.adjustor.full_name } at #{ @claim.adjustor.email }. Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" }  %>
   </div>
 <% end %>
-
-<%= link_to "Send Cite Letter", deliver_claim_path(@claim), method: :post, class: "btn btn-primary", data: { confirm: "This email will be sent to #{ @claim.adjustor.full_name } at #{ @claim.adjustor.email }. Are you sure you want to send the email? Make sure you click 'Preview site letter' first!" } %>
 
 <h3 class="page-header">Invoices</h3>
 <table class="table">
