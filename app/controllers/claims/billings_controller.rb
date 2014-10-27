@@ -11,12 +11,12 @@ class Claims::BillingsController < ApplicationController
   # GET /billings/1
   # GET /billings/1.json
   def show
-    @line_items = @billing.line_items
     @line_item = @billing.line_items.build
+    @line_items = @billing.line_items
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@claim, @billing)
+        pdf = InvoicePdf.new(@claim, @billing, view_context)
         send_data pdf.render, filename: "Invoice_#{@billing.invoice_nbr}.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -68,7 +68,7 @@ class Claims::BillingsController < ApplicationController
   def destroy
     @billing.destroy
     respond_to do |format|
-      format.html { redirect_to billings_url }
+      format.html { redirect_to claim_billings_path }
       format.json { head :no_content }
     end
   end
