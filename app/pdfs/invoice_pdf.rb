@@ -40,7 +40,7 @@ class InvoicePdf < Prawn::Document
       text "#{@billing.insurance_company.city}, #{@billing.insurance_company.state.abbr} #{@billing.insurance_company.zip}"
       text "#{@claim.adjustor.full_name}"
     end
-    bounding_box([350, 545], :width => 200, :height => 100) do
+    bounding_box([350, 545], :width => 400, :height => 100) do
       # text "Invoice Number:    #{@billing.invoice_nbr}"
       # text "Invoice Date:         #{@billing.invoice_date.strftime("%D")}"
       # text "Examinee: #{@claim.claimant.full_name}"
