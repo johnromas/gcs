@@ -9,9 +9,9 @@
       </div>
       <div class="row">
         <%= referral_label(["Phone:", "SSN:"]) %>
-        <%= referral_value([@claimant.phone, @claimant.ssn], "4") %>
+        <%= referral_value([@claimant.try(:phone), @claimant.try(:ssn)], "4") %>
         <%= referral_label(["DOB:", "Gender:"]) %>
-        <%= referral_value([@claimant.dob, @claimant.gender], "4") %>
+        <%= referral_value([@claimant.try(:dob), @claimant.try(:gender)], "4") %>
       </div>
     </div>
   <% end %>
@@ -22,13 +22,13 @@
     <div class='panel-body'>
       <div class="row">
         <%= referral_label(["Adjuster:", "Company:"]) %>
-        <%= referral_value(["#{@adjustor.full_name} (#{@insurance_company.name})", @insurance_company.address, "#{@insurance_company.city}, #{@insurance_company.state.try(:abbr)}, #{@insurance_company.zip}"], "9") %>
+        <%= referral_value(["#{@adjustor.full_name} (#{@insurance_company.name})", @insurance_company.try(:address), "#{@insurance_company.try(:city)}, #{@insurance_company.state.try(:abbr)}, #{@insurance_company.try(:zip)}"], "9") %>
       </div>
       <div class="row">
         <%= referral_label(["Phone:", "Email:"]) %>
-        <%= referral_value([@adjustor.phone, @adjustor.email], "4") %>
+        <%= referral_value([@adjustor.try(:phone), @adjustor.try(:email)], "4") %>
         <%= referral_label(["Fax:"]) %>
-        <%= referral_value([@adjustor.fax], "4") %>
+        <%= referral_value([@adjustor.try(:fax)], "4") %>
       </div>
     </div>
   <% end %>
