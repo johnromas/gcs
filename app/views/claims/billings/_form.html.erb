@@ -26,15 +26,6 @@
   <div class="field">
     <%= f.collection_select(:claimant_id, Claimant.all, :id, :full_name, {prompt: 'Select Claimant', :selected => @billing.claim.claimant.try(:id)}) %>
   </div>
-  <div class="field">
-    <%= f.number_field :subtotal, step: 0.01 %>
-  </div>
-  <div class="field">
-    <%= f.number_field :total, step: 0.01 %>
-  </div>
-  <div class="field">
-    <%= f.number_field :paid, step: 0.01 %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
