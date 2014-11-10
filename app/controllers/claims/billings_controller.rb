@@ -68,7 +68,7 @@ class Claims::BillingsController < ApplicationController
   def destroy
     @billing.destroy
     respond_to do |format|
-      format.html { redirect_to claim_billings_path }
+      format.html { redirect_to claim_path(@claim) }
       format.json { head :no_content }
     end
   end
