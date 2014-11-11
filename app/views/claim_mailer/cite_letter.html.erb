@@ -19,21 +19,6 @@
 				<%= Date.today.strftime("%B %d, %Y") %>
 			</td>
 		</tr>
-		<tr>
-			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
-				<%= @claim.claimant.full_name %>
-			</td>
-		</tr>
-		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				<%= @claim.claimant.address %>
-			</td>
-		</tr>
-		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				<%= @claim.claimant.city %>, <%= @claim.claimant.state.abbr %> <%= @claim.claimant.zip %>
-	 		</td>
-	 	</tr>
 	 	<tr>
 	 		<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 30px;">
 				<%= @claim.adjustor.full_name %>,
