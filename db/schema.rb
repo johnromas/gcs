@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022203051) do
+ActiveRecord::Schema.define(version: 20141110235547) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -210,6 +210,8 @@ ActiveRecord::Schema.define(version: 20141022203051) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mobile"
+    t.string   "office"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

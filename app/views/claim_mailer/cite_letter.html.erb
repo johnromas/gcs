@@ -58,7 +58,7 @@
 		</tr>
 		<tr>
 			<td class="address" style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;margin-top: 0;padding-top: 20px;">
-				Please send medical records and cover letter to our <span style="color: #e01f30">Bay City address below</span>.  Documents can also be emailed to jromas@globalclaimssolutionsllc.com or faxed to 989-391-9362.
+				Please send medical records and cover letter to our <span style="color: #e01f30">Bay City address below</span>.  Documents can also be emailed to <%= @user.email %> or faxed to 989-391-9362.
 			</td>
 		</tr>
 		<tr>
@@ -103,7 +103,7 @@
 		</tr>
 		<tr>
 			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				John E. Romas
+				<%= @user.full_name %>
 			</td>
 		</tr>
 		<tr>
@@ -123,17 +123,17 @@
 		</tr>
 		<tr>
 			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				248-355-2220
+				<%= @user.office %>
 			</td>
 		</tr>
 		<tr>
 			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				248-866-9841 - Cell
+				<%= @user.mobile %> - Cell
 			</td>
 		</tr>
 		<tr>
 			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				jromas@globalclaimssolutionsllc.com
+				<%= @user.email %>
 			</td>
 		</tr>
 	</table>
