@@ -126,11 +126,13 @@
 				<%= @user.office %>
 			</td>
 		</tr>
-		<tr>
-			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
-				<%= @user.mobile %> - Cell
-			</td>
-		</tr>
+		<% if @user.mobile.present? %>
+			<tr>
+				<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
+					<%= @user.mobile %> - Cell
+				</td>
+			</tr>
+		<% end %>
 		<tr>
 			<td style="color: #000000;font-size: 14px;font-family: Verdana,Helvetica,Arial;">
 				<%= @user.email %>
