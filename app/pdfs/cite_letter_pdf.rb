@@ -15,7 +15,7 @@ class CiteLetterPdf < Prawn::Document
   end
   
   def header
-    text "#{Date.today.strftime("%B %d, %Y")}"
+    text "#{@claim.created_at.strftime("%B %d, %Y")}"
     move_down 15
     text "#{@claim.claimant.full_name}"
 		text "#{@claim.claimant.address}"
