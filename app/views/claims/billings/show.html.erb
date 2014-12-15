@@ -19,7 +19,11 @@
         <td><%= simple_format(line_item.description) %></td>
         <td><%= number_to_currency(line_item.unit_price) %></td>
         <td class="line_item_total"><%= number_to_currency(line_item.total) %></td>
-        <td><%= link_to "Delete", line_item_url_helper(line_item), method: :delete, :class => 'btn btn-mini btn-danger', remote: true, confirm: "Are you sure you want to delete this line item?"  %></td>
+        <td></td>
+        <td>
+          <%= link_to "Edit", "/claims/#{@claim.id}/billings/#{@billing.id}/line_items/#{line_item.id}/edit", class: "btn btn-success" %>
+          <%= link_to "Delete", line_item_url_helper(line_item), method: :delete, :class => 'btn btn-mini btn-danger', remote: true, confirm: "Are you sure you want to delete this line item?"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>
