@@ -91,7 +91,7 @@ class InvoicePdf < Prawn::Document
     table_data = [["Qty", "Date", "CPT Code", "Description", "Unit Price", "Total" ]]
     array = []
     @billing.line_items.each do |item|
-      array << [item.quantity, item.billing.invoice_date.strftime("%D"), item.cpt_code, item.description, @view.number_to_currency(item.unit_price), @view.number_to_currency(item.total)] unless item.id.nil?
+      array << [item.quantity, item.date.strftime("%D"), item.cpt_code, item.description, @view.number_to_currency(item.unit_price), @view.number_to_currency(item.total)] unless item.id.nil?
       array 
     end
     table_data += array
