@@ -12,6 +12,7 @@ Gcs::Application.routes.draw do
 
   resources :claims do
     post :deliver, on: :member
+    resources :reports, controller: 'claims/reports'
     resources :billings, controller: 'claims/billings' do 
       resources :line_items
     end
