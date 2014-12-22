@@ -1,6 +1,6 @@
 class Claims::ReportsController < ApplicationController
   before_action :set_claim
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :edit, :update, :destroy, :mercury_update]
 
   # GET /reports
   # GET /reports.json
@@ -15,7 +15,7 @@ class Claims::ReportsController < ApplicationController
       format.html
       format.pdf do
         pdf = InvoicePdf.new(@claim, @report, view_context)
-        send_data pdf.render, filename: "Invoice_#{@report.invoice_nbr}.pdf",
+        send_data pdf.render, filename: "Invoice_#{@report.date}.pdf",
                               type: "application/pdf",
                               disposition: "inline"
       end
@@ -69,6 +69,13 @@ class Claims::ReportsController < ApplicationController
       format.html { redirect_to claim_path(@claim) }
       format.json { head :no_content }
     end
+  end
+
+  def mercury_update
+    report = @report
+    report.content = params[:content][:report_content][:value]
+    report.save!
+    render text: ""
   end
 
   private

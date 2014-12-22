@@ -1,8 +1,9 @@
 class InvoicePdf < Prawn::Document
-	def initialize(claim, billing, view)
+  include ActionView::Helpers::SanitizeHelper
+	def initialize(claim, report, view)
     super(top_margin: 70)
     @claim = claim
-    @billing = billing
+    @report = report
     @view = view
     ## Footer
     repeat :all do
@@ -17,16 +18,21 @@ class InvoicePdf < Prawn::Document
     ## Everything after footer
     bounding_box [bounds.left, bounds.top], width: bounds.width, height: bounds.height - 16 do
       logo
-      bill_to
-      # customer_info
-      line_items
-      summary
+      report_text
+      # bill_to
+      # # customer_info
+      # line_items
+      # summary
     end
   end
   
   def logo
     image "#{Rails.root}/app/assets/images/gcs_logo.jpg", :position => :left, :width => 300, :scale => 0.5
     move_down 30
+  end
+
+  def report_text
+    text strip_tags(@report.content)
   end
 
   def bill_to

@@ -1,5 +1,6 @@
 Gcs::Application.routes.draw do
 
+  mount Mercury::Engine => '/'
   devise_for :users
 
   get "dashboard" => "dashboard#index", as: "dashboard"
@@ -12,7 +13,9 @@ Gcs::Application.routes.draw do
 
   resources :claims do
     post :deliver, on: :member
-    resources :reports, controller: 'claims/reports'
+    resources :reports, controller: 'claims/reports' do
+      member { put :mercury_update }
+    end
     resources :billings, controller: 'claims/billings' do 
       resources :line_items
     end

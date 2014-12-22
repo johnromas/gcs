@@ -51,6 +51,8 @@ gem 'bootstrap_form'
 
 gem 'carrierwave'
 
+gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git'
+
 gem 'fog'
 
 group :production do
