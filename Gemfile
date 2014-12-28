@@ -25,6 +25,8 @@ gem 'turbolinks'
 
 gem 'prawn'
 
+gem 'htmlentities'
+
 gem 'figaro', '1.0'
 
 gem 'jquery-inputmask-rails'

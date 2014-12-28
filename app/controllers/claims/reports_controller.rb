@@ -14,8 +14,8 @@ class Claims::ReportsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@claim, @report, view_context)
-        send_data pdf.render, filename: "Invoice_#{@report.date}.pdf",
+        pdf = ReportPdf.new(@claim, @report, view_context)
+        send_data pdf.render, filename: "Report.pdf",
                               type: "application/pdf",
                               disposition: "inline"
       end
