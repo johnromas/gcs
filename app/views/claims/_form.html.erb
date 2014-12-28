@@ -47,14 +47,26 @@
       </div>
     </div>
   <% end %>
+  <!-- Insurance Company -->
   <%= panel tag: :aside, context: :primary do %>
     <div class='panel-heading'>Insurance Company</div>
     <div class='panel-body'>
       <%= f.collection_select(:insurance_company_id, InsuranceCompany.all, :id, :name, {prompt: 'Select Insurance Company'}) %>
       <%= f.collection_select(:adjustor_id, Adjustor.all, :id, :full_name, {prompt: 'Select Adjustor'}) %>
-      <%= f.collection_select(:attorney_id, Attorney.all, :id, :full_name, {prompt: 'Select Attorney'}) %>
     </div>
   <% end %>
+  <!-- Legal -->
+  <%= panel tag: :aside, context: :primary do %>
+    <div class='panel-heading'>Legal</div>
+    <div class='panel-body'>
+      <%= f.check_box :litigated %>
+      <div id="legal-fields">
+        <%= f.collection_select(:attorney_id, Attorney.all, :id, :full_name, {prompt: 'Select Attorney'}) %>
+        <%= f.text_area :legal_notes, rows: 8 %>
+      </div>
+    </div>
+  <% end %>
+  <!-- Appointment Info -->
   <%= panel tag: :aside, context: :primary do %>
     <div class='panel-heading'>Appointment</div>
     <div class='panel-body'>

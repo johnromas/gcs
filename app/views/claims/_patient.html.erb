@@ -11,7 +11,7 @@
         <%= referral_label(["Phone:", "SSN:"]) %>
         <%= referral_value([@claimant.try(:phone), @claimant.try(:ssn)], "4") %>
         <%= referral_label(["DOB:", "Gender:"]) %>
-        <%= referral_value([@claimant.try(:dob), @claimant.try(:gender)], "4") %>
+        <%= referral_value([@claimant.try(:dob).try(:strftime, "%m/%d/%y"), @claimant.try(:gender)], "4") %>
       </div>
     </div>
   <% end %>

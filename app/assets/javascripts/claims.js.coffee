@@ -19,7 +19,14 @@ ready = ->
 		else
 			$(".new-claimant-form").children().find("input, textarea, select").each ->
 				$(this).val("")
-			
+
+	
+	$("#claim_litigated").bootstrapSwitch('onText', 'Yes')
+	$("#claim_litigated").bootstrapSwitch('offText', 'No')
+	$("#legal-fields").hide() if $("#claim_litigated").parent().parent().hasClass("bootstrap-switch-off")
+	$("#claim_litigated").bootstrapSwitch('onSwitchChange', (event, state) ->
+		$("#legal-fields").toggle("fast")
+	)		
 
 	
 
