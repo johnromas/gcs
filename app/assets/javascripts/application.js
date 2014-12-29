@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cocoon
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
@@ -21,4 +22,17 @@
 //= require jquery.inputmask.date.extensions
 //= require bootstrap-switch.min.js
 //= require turbolinks
-//= require_tree .
+//= require adjustors
+//= require appointments
+//= require attorneys
+//= require billings
+//= require claimants
+//= require claims
+//= require dashboard
+//= require doctors
+//= require documents
+//= require insurance_companies
+//= require line_items
+//= require reports
+//= require welcome
+

@@ -25,6 +25,8 @@ gem 'turbolinks'
 
 gem 'prawn'
 
+gem 'htmlentities'
+
 gem 'figaro', '1.0'
 
 gem 'jquery-inputmask-rails'
@@ -32,6 +34,8 @@ gem 'jquery-inputmask-rails'
 gem 'newrelic_rpm'
 
 gem 'devise'
+
+gem "cocoon"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -50,6 +54,8 @@ gem 'bh', '~> 1.1'
 gem 'bootstrap_form'
 
 gem 'carrierwave'
+
+gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git'
 
 gem 'fog'
 

@@ -6,6 +6,7 @@ class Claim < ActiveRecord::Base
   belongs_to :attorney
   has_one :appointment
   has_many :billings
+  has_many :reports
 
   accepts_nested_attributes_for :appointment
   accepts_nested_attributes_for :claimant

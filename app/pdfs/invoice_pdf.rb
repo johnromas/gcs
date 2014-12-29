@@ -1,5 +1,5 @@
 class InvoicePdf < Prawn::Document
-	def initialize(claim, billing, view)
+  def initialize(claim, billing, view)
     super(top_margin: 70)
     @claim = claim
     @billing = billing
