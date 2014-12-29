@@ -53,6 +53,7 @@ class ReportPdf < Prawn::Document
       text "#{section.content}"
       move_down 20
     end
+    text "#{@report.outro}"
   end
 
   def bill_to
