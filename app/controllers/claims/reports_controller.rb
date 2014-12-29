@@ -40,7 +40,7 @@ class Claims::ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to [@claim, @report], notice: 'Report was successfully created.' }
+        format.html { redirect_to claim_report_path(@claim, @report, format: :pdf), notice: 'Report was successfully created.' }
         format.json { render action: 'show', status: :created, location: @report }
       else
         format.html { render action: 'new' }
