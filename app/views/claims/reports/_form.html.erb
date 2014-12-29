@@ -11,6 +11,7 @@
     </div>
   <% end %>
   <div class="field">
+    <%= f.file_field :photo %>
     <%= f.date_field :date %>
     <%= f.text_area :intro, rows: 10 %>
   </div>
@@ -28,5 +29,4 @@
   <div class="actions pull-right">
     <%= f.submit %>
   </div>
-
 <% end %>

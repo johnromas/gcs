@@ -88,7 +88,7 @@ class Claims::ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:date, :intro, :outro, report_sections_attributes: [:id, :title, :content, :_destroy])
+      params.require(:report).permit(:date, :intro, :outro, :photo, report_sections_attributes: [:id, :title, :content, :_destroy])
     end
 
     def set_claim
