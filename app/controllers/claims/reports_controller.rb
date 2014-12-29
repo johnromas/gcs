@@ -11,7 +11,7 @@ class Claims::ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @report_sections = @report.report_sections
+    @report_sections = @report.report_sections.order("position ASC")
     respond_to do |format|
       format.html
       format.pdf do
