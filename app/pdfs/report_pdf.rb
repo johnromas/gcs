@@ -50,14 +50,14 @@ class ReportPdf < Prawn::Document
   end
 
   def report_text
-    text "#{@report.intro}"
+    text "#{@report.intro}", leading: 12
     move_down 20
     @sections.each do |section|
       text "#{section.title}", size: 14, style: :bold
-      text "#{section.content}"
+      text "#{section.content}", leading: 12
       move_down 20
     end
-    text "#{@report.outro}"
+    text "#{@report.outro}", leading: 12
   end
 
   def bill_to
