@@ -35,6 +35,7 @@ gem 'newrelic_rpm'
 
 gem 'devise'
 
+gem 'acts_as_list'
 gem "cocoon"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

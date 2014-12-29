@@ -32,7 +32,11 @@ class ReportPdf < Prawn::Document
   end
 
   def header
-    image open("#{@report.photo}"), :position => :right, :at => [360, 550], :width => 140, :scale => 0.5
+    if @report.photo.present?
+      image open("#{@report.photo}"), :position => :right, :at => [360, 550], :width => 140, :scale => 0.5
+    else
+      image "#{Rails.root}/app/assets/images/1.jpg", :position => :right, :at => [360, 550], :width => 140, :scale => 0.5
+    end
     text Date.today.strftime("%B %d, %Y")
     move_down 10
     text "#{@claim.insurance_company.name}"
