@@ -35,6 +35,8 @@ gem 'newrelic_rpm'
 
 gem 'devise'
 
+gem "cocoon"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

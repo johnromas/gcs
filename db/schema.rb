@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221181241) do
+ActiveRecord::Schema.define(version: 20141229022534) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 20141221181241) do
     t.date     "date_of_injury"
     t.text     "notes"
     t.text     "cite_letter_message"
+    t.boolean  "litigated",            default: false
+    t.text     "legal_notes"
   end
 
   add_index "claims", ["adjustor_id"], name: "index_claims_on_adjustor_id"
@@ -186,12 +188,24 @@ ActiveRecord::Schema.define(version: 20141221181241) do
 
   add_index "line_items", ["billing_id"], name: "index_line_items_on_billing_id"
 
+  create_table "report_sections", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "position"
+    t.integer  "report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "report_sections", ["report_id"], name: "index_report_sections_on_report_id"
+
   create_table "reports", force: true do |t|
     t.integer  "claim_id"
-    t.text     "content"
+    t.text     "intro"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "outro"
   end
 
   add_index "reports", ["claim_id"], name: "index_reports_on_claim_id"

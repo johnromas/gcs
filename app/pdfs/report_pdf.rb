@@ -4,6 +4,7 @@ class ReportPdf < Prawn::Document
     super(top_margin: 70)
     @claim = claim
     @report = report
+    @sections = @report.report_sections
     @view = view
     # Footer
     repeat :all do
@@ -45,8 +46,13 @@ class ReportPdf < Prawn::Document
   end
 
   def report_text
-    pre_formatted = @report.content.gsub("<p></p>", "\n").gsub("<p>", "\n").gsub("&nbsp;", "")
-    text strip_tags(pre_formatted), :leading => 10
+    text "#{@report.intro}"
+    move_down 20
+    @sections.each do |section|
+      text "#{section.title}", size: 14, style: :bold
+      text "#{section.content}"
+      move_down 20
+    end
   end
 
   def bill_to

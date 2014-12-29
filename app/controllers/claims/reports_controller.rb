@@ -11,6 +11,7 @@ class Claims::ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @report_sections = @report.report_sections
     respond_to do |format|
       format.html
       format.pdf do
@@ -25,6 +26,7 @@ class Claims::ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = @claim.reports.build
+    # 3.times { @report.report_sections.build }
   end
 
   # GET /reports/1/edit
@@ -52,7 +54,7 @@ class Claims::ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to [@claim, @report], notice: 'Report was successfully updated.' }
+        format.html { redirect_to claim_report_path(@claim, @report, format: :pdf), notice: 'Report was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -86,7 +88,7 @@ class Claims::ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:date, :content)
+      params.require(:report).permit(:date, :intro, :outro, report_sections_attributes: [:id, :title, :content, :_destroy])
     end
 
     def set_claim

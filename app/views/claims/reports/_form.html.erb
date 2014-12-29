@@ -10,14 +10,22 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.text_area :content, rows: 10 %>
-  </div>
   <div class="field">
     <%= f.date_field :date %>
+    <%= f.text_area :intro, rows: 10 %>
   </div>
-  <div class="actions">
+  <div id="report-sections">
+    <%= f.fields_for :report_sections do |builder| %>
+      <%= render 'report_section_fields', f: builder %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to_add_association 'Add section', f, :report_sections %>
+  </div>
+  <div class="field">
+    <%= f.text_area :outro, rows: 10 %>
+  </div>
+  <div class="actions pull-right">
     <%= f.submit %>
   </div>
 

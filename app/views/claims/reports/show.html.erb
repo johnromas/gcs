@@ -1,7 +1,9 @@
 <h1>Report</h1>
 
-<div id="report_content" contenteditable="true" style="overflow: auto;" data-mercury="full">
-	<%= simple_format(@report.content) %>
-</div>
+<h2><%= @report.date %></h2>
+<% @report_sections.each do |section| %>
+<h3><%= section.title %></h3>
+<p><%= section.content %></p>
+<% end %>
 
-<p><%= link_to "Edit Report", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_claim_report_path(@claim, @report) } %></p>
+<%= link_to "Edit Report", edit_claim_report_path(@claim, @report) %>
