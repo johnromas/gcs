@@ -53,8 +53,10 @@ class ReportPdf < Prawn::Document
 
   def report_text
     text "Dear #{@claim.adjustor.full_name},"
-    move_down 20
-    text "#{@report.intro}", leading: 12
+    if @report.intro.present?
+      move_down 20
+      text "#{@report.intro}", leading: 12
+    end
     move_down 20
     @sections.each do |section|
       text "<u>#{section.title}</u>", size: 14, style: :bold, :inline_format => true
