@@ -57,7 +57,8 @@ class ReportPdf < Prawn::Document
     text "#{@report.intro}", leading: 12
     move_down 20
     @sections.each do |section|
-      text "#{section.title}", size: 14, style: :bold
+      text "<u>#{section.title}</u>", size: 14, style: :bold, :inline_format => true
+      move_down 5
       text "#{section.content}", leading: 12
       move_down 20
     end
