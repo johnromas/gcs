@@ -44,10 +44,10 @@ class ReportPdf < Prawn::Document
     text "#{@claim.insurance_company.city}, #{@claim.insurance_company.state.abbr} #{@claim.insurance_company.zip}"
     move_down 10
     text "Attention: #{@claim.adjustor.full_name}"
-    text "DOB: #{@claim.claimant.dob.strftime("%m/%d/%y")}"
-    text "Claim #: #{@claim.number}"
     move_down 20
     text "RE: #{@claim.claimant.full_name}"
+    text "DOB: #{@claim.claimant.dob.strftime("%m/%d/%y")}"
+    text "Claim #: #{@claim.number}"
     move_down 30
   end
 
