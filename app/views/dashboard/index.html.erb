@@ -14,17 +14,23 @@
 	      <th>Adjuster</th>
 	      <th>Claimant</th>
 	      <th>Total</th>
+	      <th>Actions</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  <% @invoices.each do |invoice| %>
-	    <tr>
+	    <tr id="dashboard_invoice_<%=invoice.id%>">
 	      <td><%= link_to_if !invoice.claim.nil?, invoice.invoice_nbr, claim_billing_path(invoice.claim, invoice) %></td>
+	      <td><%= link_to "PDF", claim_billing_path(invoice.claim, invoice, format: :pdf) %></td>
 	      <td><%= invoice.invoice_date.strftime("%m/%d/%y") %>
 	      <td><%= invoice.claim.number %></td>
 	      <td><%= invoice.claim.try(:adjustor).try(:full_name) %></td>
 	      <td><%= invoice.claim.try(:claimant).try(:full_name) %></td>
 	      <td><%= number_to_currency(invoice.total) %></td>
+	      <td>
+        	<%= link_to 'Edit', edit_claim_billing_path(invoice.claim, invoice) %> |
+        	<%= link_to 'Delete', claim_billing_path(invoice.claim, invoice), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+      	</td>
 	    </tr>
 	  <% end %>
 	  </tbody>

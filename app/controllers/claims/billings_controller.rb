@@ -70,6 +70,7 @@ class Claims::BillingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to claim_path(@claim) }
       format.json { head :no_content }
+      format.js { render 'destroy' }
     end
   end
 
