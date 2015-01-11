@@ -1,6 +1,6 @@
 class Adjustor < ActiveRecord::Base
   belongs_to :insurance_company
-  has_many :claims
+  has_many :claims, dependent: :restrict
 
   validates_presence_of :first_name, :last_name, :insurance_company
 

@@ -54,10 +54,14 @@ class AttorneysController < ApplicationController
   # DELETE /attorneys/1
   # DELETE /attorneys/1.json
   def destroy
-    @attorney.destroy
-    respond_to do |format|
-      format.html { redirect_to attorneys_url }
-      format.json { head :no_content }
+    begin
+      @attorney.destroy
+      flash[:success] = "Attorney successfully deleted." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @attorney.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to attorneys_path
     end
   end
 

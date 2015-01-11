@@ -55,10 +55,14 @@ class ClaimantsController < ApplicationController
   # DELETE /claimants/1
   # DELETE /claimants/1.json
   def destroy
-    @claimant.destroy
-    respond_to do |format|
-      format.html { redirect_to claimants_url }
-      format.json { head :no_content }
+    begin
+      @claimant.destroy
+      flash[:success] = "Claimant successfully deleted." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @claimant.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to claimants_path
     end
   end
 

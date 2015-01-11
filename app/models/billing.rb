@@ -3,7 +3,7 @@ class Billing < ActiveRecord::Base
   belongs_to :insurance_company
   belongs_to :attorney
   belongs_to :claimant
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
 
   def calculate_billing_total
   	sum = 0

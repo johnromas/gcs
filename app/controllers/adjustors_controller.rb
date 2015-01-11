@@ -55,10 +55,14 @@ class AdjustorsController < ApplicationController
   # DELETE /adjustors/1
   # DELETE /adjustors/1.json
   def destroy
-    @adjustor.destroy
-    respond_to do |format|
-      format.html { redirect_to adjustors_url }
-      format.json { head :no_content }
+    begin
+      @adjustor.destroy
+      flash[:success] = "Adjuster successfully deleted." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @adjustor.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to adjustors_path
     end
   end
 

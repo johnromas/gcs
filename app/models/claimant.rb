@@ -1,6 +1,6 @@
 class Claimant < ActiveRecord::Base
   belongs_to :state
-  has_many :claims
+  has_many :claims, dependent: :restrict
 
   validates_presence_of :first_name, :last_name
   
@@ -9,4 +9,5 @@ class Claimant < ActiveRecord::Base
   def full_name
   	self.first_name + " " + self.last_name
   end
+
 end

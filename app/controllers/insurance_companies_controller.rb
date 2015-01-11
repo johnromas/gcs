@@ -55,10 +55,14 @@ class InsuranceCompaniesController < ApplicationController
   # DELETE /insurance_companies/1
   # DELETE /insurance_companies/1.json
   def destroy
-    @insurance_company.destroy
-    respond_to do |format|
-      format.html { redirect_to insurance_companies_url }
-      format.json { head :no_content }
+    begin
+      @insurance_company.destroy
+      flash[:success] = "Insurance Company successfully deleted." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @insurance_company.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to insurance_companies_path
     end
   end
 

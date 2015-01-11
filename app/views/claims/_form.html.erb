@@ -17,7 +17,12 @@
       <%= f.text_field :number, label: "Claim #" %>
       <%= f.text_field :service %>
       <%= f.text_field :case %>
-      <%= f.date_field :date_of_injury %>
+      <div id="report-sections">
+        <%= f.fields_for :injuries do |builder| %>
+          <%= render 'injury_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_association 'Add Date of Injury', f, :injuries %>
+      </div>
     </div>
   <% end %>
   <!-- Claimant -->
