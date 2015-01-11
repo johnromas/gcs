@@ -36,7 +36,6 @@ class ClaimsController < ApplicationController
     @claim = Claim.new
     @claim.build_appointment
     @claim.build_claimant
-    @claim.build_injury
   end
 
   # GET /claims/1/edit
