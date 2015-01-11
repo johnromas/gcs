@@ -4,3 +4,28 @@
 	<%= render "appointments/table" %>
 <h4>New Claimants</h4>
 	<%= render "claimants/table" %>
+<h4>Past Due Invoices</h4>
+	<table id="past-due-invoices" class="table">
+	  <thead>
+	    <tr>
+	      <th>Invoice #</th>
+	      <th>Invoice Date</th>
+	      <th>Claim #</th>
+	      <th>Adjuster</th>
+	      <th>Claimant</th>
+	      <th>Total</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% @invoices.each do |invoice| %>
+	    <tr>
+	      <td><%= link_to invoice.invoice_nbr, claim_billing_path(invoice.claim, invoice) %></td>
+	      <td><%= invoice.invoice_date.strftime("%m/%d/%y") %>
+	      <td><%= invoice.claim.number %></td>
+	      <td><%= invoice.claim.try(:adjustor).try(:full_name) %></td>
+	      <td><%= invoice.claim.try(:claimant).try(:full_name) %></td>
+	      <td><%= number_to_currency(invoice.total) %></td>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
