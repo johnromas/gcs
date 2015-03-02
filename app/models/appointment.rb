@@ -4,5 +4,5 @@ class Appointment < ActiveRecord::Base
 
   validates_presence_of :date, :time, :doctor_id
 
-  scope :dashboard, -> { where("date >= ? AND date <= ? AND canceled = ?", Date.today, Date.today + 7, false).order("date ASC")}
+  scope :dashboard, -> { where("date >= ? AND date <= ? AND cancelled = ?", Date.today, Date.today + 7, false).order("date ASC")}
 end
