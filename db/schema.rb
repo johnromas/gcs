@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111164805) do
+ActiveRecord::Schema.define(version: 20150302011714) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150111164805) do
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "canceled",   default: false
   end
 
   add_index "appointments", ["claim_id"], name: "index_appointments_on_claim_id"
@@ -229,6 +230,16 @@ ActiveRecord::Schema.define(version: 20150111164805) do
     t.string   "ansi_code"
     t.string   "statens"
   end
+
+  create_table "upload_reports", force: true do |t|
+    t.integer  "claim_id"
+    t.string   "name"
+    t.string   "file_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "upload_reports", ["claim_id"], name: "index_upload_reports_on_claim_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
