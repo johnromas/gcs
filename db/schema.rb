@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302011714) do
+ActiveRecord::Schema.define(version: 20150302014011) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150302011714) do
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "canceled",   default: false
+    t.boolean  "cancelled",  default: false
   end
 
   add_index "appointments", ["claim_id"], name: "index_appointments_on_claim_id"

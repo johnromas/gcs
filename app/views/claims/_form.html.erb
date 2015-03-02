@@ -79,7 +79,7 @@
         <%= appointment_form.date_field :date %>
         <%= appointment_form.time_field :time %>
         <%= appointment_form.collection_select(:doctor_id, Doctor.all, :id, :full_name, {prompt: 'Select Doctor'}) %>
-        <%= appointment_form.check_box :canceled %>
+        <%= appointment_form.check_box :cancelled %>
       <% end %>
     </div>
   <% end %>

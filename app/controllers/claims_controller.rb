@@ -101,7 +101,7 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :litigated, :legal_notes, :service, :insured, :case, :date_of_injury, :notes, injuries_attributes: [:id, :date, :_destroy], appointment_attributes: [:id, :date, :time, :doctor_id, :canceled], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :email, :ssn, :dob, :gender, :notes])
+      params.require(:claim).permit(:number, :claimant_id, :insurance_company_id, :adjustor_id, :doctor_id, :attorney_id, :litigated, :legal_notes, :service, :insured, :case, :date_of_injury, :notes, injuries_attributes: [:id, :date, :_destroy], appointment_attributes: [:id, :date, :time, :doctor_id, :cancelled], claimant_attributes: [:id, :first_name, :last_name, :address, :city, :state_id, :zip, :phone, :mobile, :email, :ssn, :dob, :gender, :notes])
     end
 
     #Remove unnecessary attributes when creating/updating claimant info
