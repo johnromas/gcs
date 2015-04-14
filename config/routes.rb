@@ -4,7 +4,7 @@ Gcs::Application.routes.draw do
   devise_for :users
 
   get "dashboard" => "dashboard#index", as: "dashboard"
-  
+
   resources :attorneys
 
   resources :documents
@@ -16,8 +16,10 @@ Gcs::Application.routes.draw do
     resources :reports, controller: 'claims/reports' do
       member { put :mercury_update }
     end
-    resources :billings, controller: 'claims/billings' do 
-      resources :line_items
+    resources :billings, controller: 'claims/billings' do
+      resources :line_items do
+        collection { post :sort }
+      end
     end
   end
 

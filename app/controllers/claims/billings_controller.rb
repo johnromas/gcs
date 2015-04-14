@@ -12,7 +12,7 @@ class Claims::BillingsController < ApplicationController
   # GET /billings/1.json
   def show
     @line_item = @billing.line_items.build
-    @line_items = @billing.line_items
+    @line_items = @billing.line_items.order("position")
     respond_to do |format|
       format.html
       format.pdf do

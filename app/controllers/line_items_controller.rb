@@ -65,6 +65,13 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def sort
+    params[:line_item].each_with_index do |id, index|
+      LineItem.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item

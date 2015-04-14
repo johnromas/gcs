@@ -1,6 +1,7 @@
-<table id="line_items_table" class="table">
+<table id="line_items_table" class="table" data-update-url="<%= sort_claim_billing_line_items_path(@claim, @billing) %>">
   <thead>
     <tr>
+      <th>Reorder</th>
       <th>Quantity</th>
       <th>Date</th>
       <th>CPT Code</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr id="line_item_<%= line_item.id %>">
+        <td class="handle">Drag</td>
         <td><%= line_item.quantity %></td>
         <td><%= line_item.date.try(:strftime, "%D") %></td>
         <td><%= line_item.cpt_code %></td>
@@ -29,6 +31,7 @@
   </tbody>
   <tfoot>
     <tr>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302014011) do
+ActiveRecord::Schema.define(version: 20150414033841) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(version: 20150302014011) do
     t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "line_items", ["billing_id"], name: "index_line_items_on_billing_id"

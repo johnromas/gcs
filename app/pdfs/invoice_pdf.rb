@@ -23,7 +23,7 @@ class InvoicePdf < Prawn::Document
       summary
     end
   end
-  
+
   def logo
     image "#{Rails.root}/app/assets/images/gcs_logo.jpg", :position => :left, :width => 300, :scale => 0.5
     move_down 30
@@ -90,9 +90,9 @@ class InvoicePdf < Prawn::Document
     move_down 150
     table_data = [["Qty", "Date", "CPT Code", "Description", "Unit Price", "Total" ]]
     array = []
-    @billing.line_items.each do |item|
+    @billing.line_items.order("position").each do |item|
       array << [item.quantity, item.date.strftime("%D"), item.cpt_code, item.description, @view.number_to_currency(item.unit_price), @view.number_to_currency(item.total)] unless item.id.nil?
-      array 
+      array
     end
     table_data += array
 
@@ -109,7 +109,7 @@ class InvoicePdf < Prawn::Document
 
   def summary
     table_data = [["", "", "", "Invoice Total", "", "#{@view.number_to_currency(@billing.total)}" ]]
-    
+
 
     table(table_data, :column_widths => [50, 70, 70, 200, 70, 80], :row_colors => ["FFFFFF", "DDDDDD"]) do
       # cells.borders = []
