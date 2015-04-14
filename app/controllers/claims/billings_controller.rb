@@ -82,7 +82,7 @@ class Claims::BillingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def billing_params
-      params.require(:billing).permit(:claim_id, :invoice_nbr, :invoice_date, :insurance_company_id, :attorney_id, :claimant_id, :subtotal, :total, :paid)
+      params.require(:billing).permit(:claim_id, :invoice_nbr, :invoice_date, :insurance_company_id, :attorney_id, :claimant_id, :subtotal, :total, :paid, :paid_in_full)
     end
 
     def set_claim

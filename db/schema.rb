@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414033841) do
+ActiveRecord::Schema.define(version: 20150414051920) do
 
   create_table "adjustors", force: true do |t|
     t.integer  "insurance_company_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150414033841) do
     t.decimal  "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid_in_full",         default: false
   end
 
   add_index "billings", ["attorney_id"], name: "index_billings_on_attorney_id"
