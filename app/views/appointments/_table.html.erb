@@ -11,7 +11,7 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.claim.try(:claimant).try(:full_name) %></td>
+        <td><%= link_to appointment.claim.try(:claimant).try(:full_name), appointment.claim %></td>
         <td><%= appointment.try(:date).strftime("%D") %></td>
         <td><%= appointment.try(:time).strftime("%r") %></td>
         <td><%= appointment.doctor.try(:full_name) %></td>
