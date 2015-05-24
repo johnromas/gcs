@@ -16,8 +16,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :mobile_device?
 
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
   def prepare_for_mobile
     session[:mobile_param] = params[:mobile] if params[:mobile]
   end
-  
+
 end
