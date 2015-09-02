@@ -4,8 +4,12 @@ class Adjustor < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :insurance_company
 
-	def full_name
-		self.first_name + " " + self.last_name
-	end
+  def self.ordered_by_name
+    order(:first_name)
+  end
+
+  def full_name
+    self.first_name + " " + self.last_name
+  end
 
 end

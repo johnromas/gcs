@@ -35,9 +35,9 @@ class InvoicePdf < Prawn::Document
       move_down 10
       text "Bill To:"
       move_down 10
-      text "#{@billing.insurance_company.name}"
+      text "#{@billing.insurance_company.try(:name)}"
       text "#{@billing.insurance_company.address}"
-      text "#{@billing.insurance_company.city}, #{@billing.insurance_company.state.abbr} #{@billing.insurance_company.zip}"
+      text "#{@billing.insurance_company.city}, #{@billing.insurance_company.try(:state).try(:abbr)} #{@billing.insurance_company.zip}"
       text "#{@claim.adjustor.full_name}"
     end
     bounding_box([310, 540], :width => 400, :height => 200) do
