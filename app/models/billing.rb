@@ -5,7 +5,7 @@ class Billing < ActiveRecord::Base
   belongs_to :claimant
   has_many :line_items, dependent: :destroy
 
-  scope :past_due, -> { where("invoice_date <= ?", Date.today - 30).order("invoice_date DESC")}
+  scope :past_due, -> { where("invoice_date <= ? AND paid_in_full = false", Date.today - 30).order("invoice_date DESC")}
 
   def calculate_billing_total
   	sum = 0
