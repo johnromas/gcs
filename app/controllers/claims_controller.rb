@@ -4,7 +4,7 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all
+    @claims = Claim.order('created_at desc').limit(300)
     # @claim = Claim.new
     # @claim.build_appointment
     # @claim.build_claimant
