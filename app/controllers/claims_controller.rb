@@ -4,7 +4,7 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all
+    @claims = Claim.includes(:claimant, :appointment, :insurance_company, :adjustor, :appointment).order('created_at desc')
     # @claim = Claim.new
     # @claim.build_appointment
     # @claim.build_claimant
