@@ -64,7 +64,7 @@ class InvoicePdf < Prawn::Document
     bounding_box([325, 690], :width => 200, :height => 150) do
       text "Global Claims Solutions LLC", size: 10, align: :right
       text "29877 Telegraph Rd", size: 10, align: :right
-      text "Suite 250", size: 10, align: :right
+      text "Suite 200", size: 10, align: :right
       text "Southfield, MI 48034", size: 10, align: :right
       text "Phone: 248-355-2220", size: 10, align: :right
       text "Fax: 989-391-9362", size: 10, align: :right
