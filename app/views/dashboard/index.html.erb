@@ -4,7 +4,7 @@
 	<%= render "appointments/table" %>
 <h4>New Claimants</h4>
 	<%= render "claimants/table" %>
-<h4>Past Due Invoices</h4>
+<h4>Open Invoices</h4>
 <h4>Total: <%= number_to_currency(@invoices.sum(:total)) %></h4>
 	<table id="past-due-invoices" class="table">
 	  <thead>
