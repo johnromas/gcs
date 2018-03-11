@@ -15,4 +15,8 @@ class Billing < ActiveRecord::Base
   	end
   	self.update_attributes(total: sum)
   end
+
+  def formatted_date
+    invoice_date ? invoice_date.strftime("%m/%d/%y") : 'No Date'
+  end
 end
